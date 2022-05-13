@@ -19,7 +19,7 @@ for uploaded_file in uploaded_files:
 
     
 #####
-url = st.text_input('', label="https://")
+url = st.text_input('')
 btn = st.button('Shorten')
 
 IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"

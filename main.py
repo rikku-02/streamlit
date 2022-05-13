@@ -39,8 +39,8 @@ def main():
             st.write('Invalid URL, Please input URL')    
                  
 
-        except ValueError:
-            st.write('Invalid URL, Please input "https://..."')
+    except ValueError:               
+        st.write('Invalid URL, Please input "https://..."')
     
     
 

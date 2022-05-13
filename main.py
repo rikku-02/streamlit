@@ -9,9 +9,7 @@ def auth():
     
     if proceed:
         if usage_key == st.secrets['USAGE_KEY']:
-            text_input_container.empty()
-            proceed.disabled()
-            
+            text_input_container.empty()           
             main()
     
     

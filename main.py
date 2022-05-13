@@ -1,7 +1,12 @@
 import streamlit as st
 import owo
 
-
+def auth():
+    usage_key = st.text_input('Input Private Key:')
+    btn = st.button('Continue')
+    
+    if usage_key == 'Devric02':
+        main()
 
 
 def main():
@@ -51,7 +56,7 @@ def main():
         pass
     
     
+if __name__ == '__main__':
+    auth()
 
-if __name__=='__main__':
-  main()
      

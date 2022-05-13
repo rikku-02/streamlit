@@ -5,24 +5,21 @@ import pathlib
 st.title('Rikku.URL Shortener')
 key = st.secrets['API_KEY']
 
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
 
 btnUp = st.button('Upload')
 
-
-if uploaded_file is not None:
-     # To convert to a string based IO:
-     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-     string_data = stringio.read()
-     st.write(string_data)
+for uploaded_file in uploaded_files:
+    bytes_data = uploaded_file.read()
+    with open('file.txt', 'wb') as f: 
+    f.write(bytes_data)
     
-        
-
-    
+    if btnUp:
+        st.write(owo.upload_files(key, bytes_data))  
 
     
 #####
-url = st.text_input('')
+url = st.text_input('', label="https://")
 btn = st.button('Shorten')
 
 IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"

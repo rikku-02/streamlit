@@ -30,12 +30,13 @@ def main():
     st.subheader('Rikku.URL Shortener')
     url = st.text_input('ex. https://...', '')
     btn = st.button('Shorten')
+    req = 'https://'
 
 
 
     try:
         if btn:
-            st.write(owo.shorten_urls(key, url))
+            st.write(owo.shorten_urls(key, req + url))
 
     except ValueError:
         st.write('Invalid URL, Please input "https://..."')

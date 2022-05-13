@@ -4,12 +4,14 @@ import owo
 def auth():
     k = st.empty()
     priv_key = k.text_input('Private Key')
-
     key = st.secrets['USAGE_KEY']
+
+    IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
+    st.image(IMAGE_URL)
 
     if priv_key == key:
         k.empty()
-        st.success('Successful.')
+        st.success('Success.')
         main()
     
 
@@ -19,11 +21,10 @@ def auth():
 
 def main():
     try:
-        IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
         key = st.secrets['API_KEY']
 
         st.header('Rikku.File Upload and Url Shortener')
-        st.image(IMAGE_URL)
+        
 
         st.subheader('Rikku.File Upload')
         uploaded_files = st.file_uploader("Upload a File", accept_multiple_files=True)

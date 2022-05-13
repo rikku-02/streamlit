@@ -13,6 +13,10 @@ for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.getvalue()
     with open(upload_file.name, 'w') as f:
         f.write(bytes_data)
+        f.close()
+    
+    f = open(uploaded_file.name, "r")
+    st.write(f.read())
     
 
     if btnUp:

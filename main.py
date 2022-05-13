@@ -8,7 +8,7 @@ key = st.secrets['API_KEY']
 st.header('Rikku.File Upload and Url Shortener')
 st.image(IMAGE_URL)
 
-st.title('Rikku.File Upload')
+st.subheader('Rikku.File Upload')
 uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
 
 btnUp = st.button('Upload')
@@ -23,7 +23,7 @@ for uploaded_file in uploaded_files:
 
     
 #####
-st.title('Rikku.URL Shortener')
+st.subheader('Rikku.URL Shortener')
 url = st.text_input('ex. https://...', '')
 btn = st.button('Shorten')
 

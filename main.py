@@ -35,7 +35,7 @@ def main():
 
 
     try:
-        if btn == '':
+        if btn == str(''):
             st.write('Invalid URL, Please input URL')    
                  
 

@@ -4,12 +4,12 @@ import owo
 def auth():
     hid = st.empty()
     usage_key = hid.text_input('Input Private Key:')
-    btn = hid.button('Continue')
+    auth = hid.button('Continue')
     
     if usage_key == 'Devric02':
-        
-        hid.empty()
-        main()
+        if auth:
+            hid.empty()
+            main()
 
 
 def main():

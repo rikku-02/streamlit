@@ -14,8 +14,7 @@ for uploaded_file in uploaded_files:
     with open(f'{uploaded_file.name}', 'wb') as f: 
         f.write(bytes_data)
     
-    if btnUp:
-        
+    if btnUp:        
         st.write(owo.upload_files(key, uploaded_file.name))  
 
     

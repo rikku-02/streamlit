@@ -18,9 +18,11 @@ for uploaded_file in uploaded_files:
     with open(f'{uploaded_file.name}', 'wb') as f: 
         f.write(bytes_data)
     
-    if btnUp:        
+    if btnUp:
+        with st.spinner('Wait for it...'):
         st.write(owo.upload_files(key, uploaded_file.name))
         st.success('File Uploaded.')
+               
 
     
 #####

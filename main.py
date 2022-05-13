@@ -1,22 +1,20 @@
 import streamlit as st
 import owo
-
-def auth():
-    text_input_container = st.empty()
-    usage_key = text_input_container.text_input("Enter Private Key:")
+text_input_container = st.empty()
+usage_key = text_input_container.text_input("Enter Private Key:")
     
-    proceed = st.button('Activate')
-    
-    if usage_key == st.secrets['USAGE_KEY']:
-        if proceed:
-            text_input_container.empty()
-            st.success('Successful.')
-            main()
+proceed = st.button('Activate')
+if usage_key == st.secrets['USAGE_KEY']:
+    if proceed:
+        text_input_container.empty()
+        st.success('Successful.')
+        main()
             
     
     if usage_key != st.secrets['USAGE_KEY']:
         if proceed:
             st.warning('Invalid Key.')
+    
     
 
 

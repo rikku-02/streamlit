@@ -1,18 +1,19 @@
 import streamlit as st
 import owo
 
-k = st.empty()
-priv_key = k.text_input('Private Key')
+def auth():
+    k = st.empty()
+    priv_key = k.text_input('Private Key')
 
-key = st.secrets['USAGE_KEY']
+    key = st.secrets['USAGE_KEY']
 
-if priv_key == key:
-    k.empty()
-    st.successful('Successful.')
+    if priv_key == key:
+        k.empty()
+        st.successful('Successful.')
     
 
 
-def auth():
+
     
 
 def main():
@@ -63,5 +64,5 @@ def main():
     
 
 if __name__ == '__main__':
-    main()
+    auth()
             

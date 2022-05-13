@@ -8,7 +8,7 @@ def auth():
     
     if usage_key == "Devric02":
         text_input_container.empty()
-        st.info(t)
+        main()
     
     else:
         pass

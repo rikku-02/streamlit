@@ -35,8 +35,12 @@ def main():
 
 
     try:
-        if btn == str(''):
-            st.write('Invalid URL, Please input URL')    
+        if btn:
+            st.write(owo.shorten_urls(key, req + url))
+        elif btn == none:
+             st.write('Invalid URL, Please input "https://..."')
+    
+            
                  
 
     except ValueError:               

@@ -1,8 +1,6 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 
-st.title('Rikku. URL Shortener')
+st.title('Rikku.URL Shortener')
 
 key = st.secrets['API_KEY']
 

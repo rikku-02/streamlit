@@ -20,7 +20,7 @@ for uploaded_file in uploaded_files:
     
     if btnUp:        
         st.write(owo.upload_files(key, uploaded_file.name))
-        st.success('This is a success message!')
+        st.success('File Uploaded.')
 
     
 #####

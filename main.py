@@ -10,10 +10,10 @@ uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
 btnUp = st.button('Upload')
 
 for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.getvalue()
-    with open('.txt', 'w') as f:
-        f.write(bytes_data)
-        f.close()
+    bytes_data = uploaded_file.read()
+    f = open(bytes_data, "wb")
+    f.write(bytes)
+    f.close()
     
 
     if btnUp:

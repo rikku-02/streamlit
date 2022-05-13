@@ -8,12 +8,14 @@ def auth():
     proceed = st.button('Proceed')
     
     if proceed:
-        if st.secrets['USAGE_KEY'] not in usage_key:
-        st.info('Invalid')
+        if usage_key == st.secrets['USAGE_KEY']:
+            text_input_container.empty()
+            proceed.empty()
+            
+            main()
     
-    if usage_key == st.secrets['USAGE_KEY']:
-        text_input_container.empty()
-        main()
+    
+        
     
     
 

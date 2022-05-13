@@ -1,7 +1,7 @@
 import streamlit as st
+import owo
 
 st.title('Rikku.URL Shortener')
-st.write(st.secrets['API_KEY'])
 key = st.secrets['API_KEY']
 
 

@@ -5,20 +5,26 @@ import pathlib
 st.title('Rikku.URL Shortener')
 key = st.secrets['API_KEY']
 
-uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
+uploaded_file = st.file_uploader("Choose a file")
 
 btnUp = st.button('Upload')
 
-for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.stringio.read()
-    f = open('hehe.txt', "wb")
-    f.write(bytes_data)
-    f.close()
-    
 
+if uploaded_file is not None:
+     # To read file as bytes:
+     bytes_data = uploaded_file.getvalue()
+     st.write(bytes_data)
+
+     # To convert to a string based IO:
+     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+     st.write(stringio)
+
+     # To read file as string:
+     string_data = stringio.read()
+     st.write(string_data)
+    
     if btnUp:
-        ext = pathlib.Path(uploaded_file.name).suffix
-        st.write(owo.upload_files(key, upload))
+        st.write(owo.upload_files(key, bytes_data))
         
 
     

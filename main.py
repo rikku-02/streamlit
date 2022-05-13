@@ -23,8 +23,6 @@ if uploaded_file is not None:
      string_data = stringio.read()
      st.write(string_data)
     
-    if btnUp:
-        st.write(owo.upload_files(key, bytes_data))
         
 
     

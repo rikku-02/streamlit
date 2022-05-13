@@ -2,8 +2,7 @@ import streamlit as st
 import owo
 
 
-def hello():
-    print('asdasd123')
+
 
 def main():
     IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
@@ -33,7 +32,7 @@ def main():
 #####
     st.subheader('Rikku.URL Shortener')
     url = st.text_input('ex. https://...', '')
-    btn = st.button('Shorten', on_click=hello())
+    btn = st.button('Shorten', on_click=st.write('hehe'))
     req = 'https://'
 
 
@@ -47,5 +46,6 @@ def main():
     
     
 
-main()
+if __name__=='__main__':
+  main()
      

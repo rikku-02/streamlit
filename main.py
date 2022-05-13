@@ -5,11 +5,18 @@ st.title('Rikku.URL Shortener')
 key = st.secrets['API_KEY']
 
 uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
+btnUp = st.button('Upload')
+
 
 for uploaded_file in uploaded_files:
     st.write("filename:", uploaded_file.name)
+
+    if btnUp:
+        st.write(owo.shorten_urls(key, uploaded_file.name))
     
 
+    
+#####
 url = st.text_input('')
 btn = st.button('Shorten')
 

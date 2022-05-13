@@ -11,7 +11,7 @@ def auth():
         main()
     
     else:
-        pass
+        st.info('Invalid Key.')
     
     
 

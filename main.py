@@ -25,33 +25,25 @@ def main():
             st.success('File Uploaded.')
                
 
+ def hello():
+    st.write('hello')
     
 #####
     st.subheader('Rikku.URL Shortener')
     url = st.text_input('ex. https://...', '')
-    btn = st.button('Shorten')
+    btn = st.button('Shorten', on_click=hello())
     req = 'https://'
 
 
 
     try:
-        if btn not in req:
-            st.write('none')
-        
-        else:
-            st.write(owo.shorten_urls(key, req + url))
-            
-        
-    
-            
-                 
+        if btn:
+            st.write(owo.shorten_urls(key, req + url))                                                                     
 
     except ValueError:               
         st.write('Invalid URL, Please input "https://..."')
     
     
 
-    
-    
 main()
      

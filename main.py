@@ -38,13 +38,10 @@ def main():
 
 
     try:
-        if req not in url:
-            if btn:
-                st.write(owo.shorten_urls(key, req + url))
+       if btn:
+            st.write(owo.shorten_urls(key, url))
         
-        if url == '':
-            if btn:
-                st.write('Please input a URL')
+        
             
 
     except ValueError:               

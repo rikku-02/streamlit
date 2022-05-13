@@ -11,9 +11,8 @@ btnUp = st.button('Upload')
 
 for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
-    f = open(uploaded_file.name, "w")
-    f.write(bytes_data)
-    f.close()
+    with open(uploaded_file.name, 'w') as f:
+        f.write('Create a new text file!')
 
     if btnUp:
         ext = pathlib.Path(uploaded_file.name).suffix

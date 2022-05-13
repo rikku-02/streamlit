@@ -6,12 +6,11 @@ def auth():
     usage_key = text_input_container.text_input("Enter Private Key:")
     
     
-    if usage_key == "Devric02":
+    if usage_key == st.secrets['USAGE_KEY']:
         text_input_container.empty()
         main()
     
-    else:
-        st.info('Invalid Key.')
+    
     
     
 

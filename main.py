@@ -32,7 +32,7 @@ def main():
 #####
     st.subheader('Rikku.URL Shortener')
     url = st.text_input('ex. https://...', '')
-    btn = st.button('Shorten', '','', on_click=st.write('hehe'))
+    btn = st.button('Shorten', '','', st.write('hehe'))
     req = 'https://'
 
 

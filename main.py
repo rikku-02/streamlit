@@ -2,6 +2,9 @@ import streamlit as st
 import owo
 
 
+def hello():
+    st.write('hello')
+
 def main():
     IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
     key = st.secrets['API_KEY']
@@ -25,8 +28,7 @@ def main():
             st.success('File Uploaded.')
                
 
- def hello():
-    st.write('hello')
+ 
     
 #####
     st.subheader('Rikku.URL Shortener')

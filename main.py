@@ -10,12 +10,14 @@ uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
 btnUp = st.button('Upload')
 
 for uploaded_file in uploaded_files:
-    
-    bytes_data = uploaded_file.read()   
+    bytes_data = uploaded_file.read()
+    f = open(uploaded_file.name, "w")
+    f.write(bytes_data)
 
     if btnUp:
         ext = pathlib.Path(uploaded_file.name).suffix
-        st.write(owo.upload_files(key, f'{bytes_data}.ext'))
+        upload = open(uploaded_file.name, "r")
+        st.write(owo.upload_files(key, upload))
         
 
     

@@ -1,7 +1,19 @@
 import streamlit as st
 import owo
 
+k = st.empty()
+priv_key = k.text_input('Private Key')
 
+key = st.secrets['USAGE_KEY']
+
+if priv_key == key:
+    k.empty()
+    st.successful('Successful.')
+    
+
+
+def auth():
+    
 
 def main():
     IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"

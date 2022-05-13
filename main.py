@@ -11,7 +11,7 @@ btnUp = st.button('Upload')
 
 for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
-    with open('file.txt', 'wb') as f: 
+    with open(upload_file.name, 'wb') as f: 
         f.write(bytes_data)
     
     if btnUp:

@@ -2,10 +2,13 @@ import streamlit as st
 import owo
 
 def auth():
-    usage_key = st.text_input('Input Private Key:')
-    btn = st.button('Continue')
+    hid = st.empty()
+    usage_key = hid.text_input('Input Private Key:')
+    btn = hid.button('Continue')
     
     if usage_key == 'Devric02':
+        
+        hid.empty()
         main()
 
 

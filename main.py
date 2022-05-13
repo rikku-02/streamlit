@@ -18,10 +18,7 @@ for uploaded_file in uploaded_files:
     with open(f'{uploaded_file.name}', 'wb') as f: 
         f.write(bytes_data)
     
-    if btnUp:
-        for percent_complete in range(100):
-            st.write(owo.upload_files(key, uploaded_file.name))       
-            
+    if btnUp:           
         with st.spinner('Wait for it...'):
             st.write(owo.upload_files(key, uploaded_file.name))
             st.success('File Uploaded.')

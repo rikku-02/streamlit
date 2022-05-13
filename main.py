@@ -46,14 +46,9 @@ def main():
             if btn:
                 st.write('None')
             
-            
-       
-        
-        
-            
 
     except ValueError:               
-        st.write('Invalid URL, Please input "https://..."')
+        passs
     
     
 

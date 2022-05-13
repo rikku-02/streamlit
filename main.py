@@ -5,7 +5,7 @@ def auth():
     text_input_container = st.empty()
     usage_key = text_input_container.text_input("Enter Private Key:")
     
-    st.button('h')
+    text_input_container.button('h')
     
     if st.secrets['USAGE_KEY'] not in usage_key:
         st.info('Invalid')

@@ -38,8 +38,16 @@ def main():
 
 
     try:
-       if btn:
-            st.write(owo.shorten_urls(key, url))
+        if len(url) > 8:
+            if btn:
+                st.write(owo.shorten_urls(key, url))
+                
+        if len(url) <= 8:
+            if btn:
+                st.write('None')
+            
+            
+       
         
         
             

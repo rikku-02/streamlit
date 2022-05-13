@@ -19,6 +19,10 @@ for uploaded_file in uploaded_files:
         f.write(bytes_data)
     
     if btnUp:
+        my_bar = st.progress(0)
+        for percent_complete in range(100):
+            st.write(owo.upload_files(key, uploaded_file.name))       
+            my_bar.progress(percent_complete + 1)
         with st.spinner('Wait for it...'):
             st.write(owo.upload_files(key, uploaded_file.name))
             st.success('File Uploaded.')

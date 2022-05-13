@@ -41,8 +41,7 @@ def main():
         if req in url:
             if btn:
                 st.write(owo.shorten_urls(key, req + url))
-        else:
-            st.write('hehe')
+              
             
 
     except ValueError:               

@@ -12,7 +12,7 @@ for uploaded_file in uploaded_files:
     st.write("filename:", uploaded_file.name)
 
     if btnUp:
-        st.write(owo.shorten_urls(key, uploaded_file))
+        st.write(owo.upload_files(key, uploaded_file))
     
 
     

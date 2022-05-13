@@ -35,10 +35,13 @@ def main():
 
 
     try:
-        if btn:
+        if btn not in req:
+            st.write('none')
+        
+        else:
             st.write(owo.shorten_urls(key, req + url))
-        elif btn == none:
-             st.write('Invalid URL, Please input "https://..."')
+            
+        
     
             
                  

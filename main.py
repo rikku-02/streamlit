@@ -19,7 +19,8 @@ for uploaded_file in uploaded_files:
         f.write(bytes_data)
     
     if btnUp:        
-        st.write(owo.upload_files(key, uploaded_file.name))  
+        st.write(owo.upload_files(key, uploaded_file.name))
+        st.success('This is a success message!')
 
     
 #####

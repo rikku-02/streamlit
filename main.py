@@ -3,7 +3,7 @@ import owo
 
 def auth():
     k = st.empty()
-    priv_key = k.text_input('Private Key')
+    priv_key = k.text_input('Private Key:')
     key = st.secrets['USAGE_KEY']
 
     if priv_key == key:
@@ -27,7 +27,7 @@ def main():
 
 
         st.subheader('Rikku.File Upload')
-        uploaded_files = st.file_uploader("Upload a File", accept_multiple_files=True)
+        uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)
 
         btnUp = st.button('Upload')
 
@@ -42,7 +42,7 @@ def main():
                 st.success('File Uploaded.')
    
     except UnboundLocalError:
-        st.write('Upload a File')
+        st.warning('Please select a file.')
             
      
                
@@ -64,7 +64,7 @@ def main():
                 
         if len(url) <= 8:
             if btn:
-                st.write('Please input a URL')
+                st.warning('Please input a URL')
             
 
     except ValueError:               

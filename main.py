@@ -44,7 +44,7 @@ def main():
                 
         if len(url) <= 8:
             if btn:
-                st.write('None')
+                st.write('Please input a URL')
             
 
     except ValueError:               

@@ -10,6 +10,11 @@ def auth():
         text_input_container.empty()
         main()
     
+    if usage_key != st.secrets['USAGE_KEY']:
+        st.info('Invalid Key')
+    else:
+        pass
+    
     
     
     

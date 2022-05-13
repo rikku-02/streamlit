@@ -38,9 +38,9 @@ def main():
 
 
     try:
-        if len(url) > 8:
+        if len(url) > 12:
             if btn:
-                st.write(owo.shorten_urls(key, url))
+                st.write(owo.shorten_urls(key, req + url))
                 
         if len(url) <= 8:
             if btn:

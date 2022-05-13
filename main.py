@@ -12,6 +12,10 @@ def auth():
     
     if usage_key != st.secrets['USAGE_KEY']:
         st.info('Invalid Key')
+    
+    if usage_key == '':
+        pass
+    
     else:
         pass
     

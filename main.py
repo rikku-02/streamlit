@@ -11,9 +11,9 @@ if usage_key == st.secrets['USAGE_KEY']:
         main()
             
     
-    if usage_key != st.secrets['USAGE_KEY']:
-        if proceed:
-            st.warning('Invalid Key.')
+if usage_key != st.secrets['USAGE_KEY']:
+    if proceed:
+        st.warning('Invalid Key.')
     
     
 

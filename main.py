@@ -41,6 +41,10 @@ def main():
         if req in url:
             if btn:
                 st.write(owo.shorten_urls(key, req + url))
+        
+        elif req not in url:
+            if btn:
+                st.write('pass')
               
             
 

@@ -3,7 +3,7 @@ import owo
 
 
 def hello():
-    st.write('hello')
+    print('asdasd123')
 
 def main():
     IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"

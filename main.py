@@ -3,12 +3,15 @@ import owo
 
 def auth():
     text_input_container = st.empty()
-    t = text_input_container.text_input("Enter something")
+    usage_key = text_input_container.text_input("Enter Private Key:")
     
     
-    if t != "":
+    if usage_key == "Devric02":
         text_input_container.empty()
         st.info(t)
+    
+    else:
+        pass
     
     
 

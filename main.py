@@ -10,9 +10,10 @@ btnUp = st.button('Upload')
 
 
 for uploaded_file in uploaded_files:
+    
     bytes_data = uploaded_file.read()
     st.write("filename:", uploaded_file.name)
-    st.write(pathlib.Path(uploaded_file.name).suffix))
+    st.write(pathlib.Path(uploaded_file.name).suffix)
 
     if btnUp:
         st.write(owo.upload_files(key, bytes_data))

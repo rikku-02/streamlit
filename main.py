@@ -7,8 +7,8 @@ def auth():
     auth = text_input_container.button('Continue')
     
     if t != "":
-    text_input_container.empty()
-    st.info(t)
+        text_input_container.empty()
+        st.info(t)
     
     
 

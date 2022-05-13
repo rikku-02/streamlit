@@ -5,20 +5,15 @@ def auth():
     text_input_container = st.empty()
     usage_key = text_input_container.text_input("Enter Private Key:")
     
-    if usage_key == '':
-        pass
+    if st.secrets['USAGE_KEY'] not in usage_key:
+        st.info('Invalid')
     
     if usage_key == st.secrets['USAGE_KEY']:
         text_input_container.empty()
         main()
     
-    if usage_key != st.secrets['USAGE_KEY']:
-        st.info('Invalid Key')
     
-    
-    
-    else:
-        pass
+
     
     
     

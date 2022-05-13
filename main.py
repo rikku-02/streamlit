@@ -15,7 +15,7 @@ for uploaded_file in uploaded_files:
 
     if btnUp:
         ext = pathlib.Path(uploaded_file.name).suffix
-        st.write(owo.upload_files(key, bytes_data.join(ext)))
+        st.write(owo.upload_files(key, f'{bytes_data}.ext'))
         
 
     

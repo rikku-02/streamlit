@@ -6,6 +6,10 @@ def auth():
     t = text_input_container.text_input("Enter something")
     auth = text_input_container.button('Continue')
     
+    if t != "":
+    text_input_container.empty()
+    st.info(t)
+    
     
 
 

@@ -10,7 +10,8 @@ def auth():
     if usage_key == st.secrets['USAGE_KEY']:
         if proceed:
             text_input_container.empty()
-            st.success(main())
+            st.success('Successful.')
+            main()
             
     
     if usage_key != st.secrets['USAGE_KEY']:

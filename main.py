@@ -6,10 +6,7 @@ def auth():
     usage_key = hid.text_input('Input Private Key:')
     auth = hid.button('Continue')
     
-    if usage_key == 'Devric02':
-        if auth:
-            hid.empty()
-            main()
+    
 
 
 def main():

@@ -2,9 +2,9 @@ import streamlit as st
 import owo
 
 def auth():
-    hid = st.empty()
-    usage_key = st.text_input('')
-    auth = hid.button('Continue')
+    text_input_container = st.empty()
+    t = text_input_container.text_input("Enter something")
+    auth = text_input_container.button('Continue')
     
     
 

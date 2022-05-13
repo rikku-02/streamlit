@@ -9,12 +9,13 @@ def auth():
     
     if usage_key == st.secrets['USAGE_KEY']:
         if proceed:
-            text_input_container.empty()           
-            main()
+            text_input_container.empty()
+            st.success(main())
+            
     
     if usage_key != st.secrets['USAGE_KEY']:
         if proceed:
-            st.info('Invalid Key.')
+            st.warning('Invalid Key.')
     
 
 

@@ -15,9 +15,6 @@ for uploaded_file in uploaded_files:
         f.write(bytes_data)
         f.close()
     
-    f = open(uploaded_file.name, "r")
-    st.write(f.read())
-    
 
     if btnUp:
         ext = pathlib.Path(uploaded_file.name).suffix

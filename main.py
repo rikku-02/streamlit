@@ -9,7 +9,7 @@ def auth():
 
     if priv_key == key:
         k.empty()
-        st.successful('Successful.')
+        st.success('Successful.')
     
 
 

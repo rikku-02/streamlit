@@ -10,7 +10,7 @@ uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
 btnUp = st.button('Upload')
 
 for uploaded_file in uploaded_files:
-    bytes_data = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    bytes_data = uploaded_file.stringio.read()
     f = open('hehe.txt', "wb")
     f.write(bytes_data)
     f.close()

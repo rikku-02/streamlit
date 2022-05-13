@@ -5,21 +5,16 @@ def auth():
     text_input_container = st.empty()
     usage_key = text_input_container.text_input("Enter Private Key:")
     
-    proceed = st.button('Proceed')
+    proceed = st.button('Activate')
     
-    if proceed:
-        if usage_key == st.secrets['USAGE_KEY']:
+    if usage_key == st.secrets['USAGE_KEY']:
+        if proceed:
             text_input_container.empty()           
             main()
     
-    
-        
-    
-    
-
-    
-    
-    
+    if usage_key != st.secrets['USAGE_KEY']:
+        if proceed:
+            st.info('Invalid Key.')
     
 
 

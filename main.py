@@ -19,7 +19,7 @@ for uploaded_file in uploaded_files:
         f.write(bytes_data)
     
     if btnUp:           
-        with st.spinner('Wait for it...'):
+        with st.spinner('Uploading...'):
             st.write(owo.upload_files(key, uploaded_file.name))
             st.success('File Uploaded.')
                

@@ -3,7 +3,7 @@ import owo
 
 def auth():
     hid = st.empty()
-    usage_key = hid.text_input('')
+    usage_key = st.text_input('')
     auth = hid.button('Continue')
     
     

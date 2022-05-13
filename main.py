@@ -9,7 +9,7 @@ key = st.secrets['API_KEY']
 url = st.text_input('')
 btn = st.button('Shorten')
 
-IMAGE_URL = "https://i.pinimg.com/originals/0e/26/1b/0e261bfd97562baad77e39a7c3dad32d.png"
+IMAGE_URL = "https://i.pinimg.com/564x/91/81/c4/9181c4016c719f4e9daf194db019cf3c.jpg"
 
 
 try:

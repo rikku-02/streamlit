@@ -26,9 +26,8 @@ def main():
         f.write(bytes_data)
     
   if btnUp: 
-    with st.spinner('Uploading...'):
-      st.write(owo.upload_files(key, uploaded_file.name))
-      st.success('File Uploaded.')
+    st.write(owo.upload_files(key, uploaded_file.name))
+      
   
             
                 

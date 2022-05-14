@@ -56,7 +56,7 @@ def main():
                 
         if len(url) <= 8:
             if btn:
-                st.warning('Please input a URL')
+                st.warning('Please input a URL.')
             
 
     except ValueError:               

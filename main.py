@@ -22,6 +22,7 @@ def main():
 
   for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.getvalue()
+    st.write(uploaded_file.name)
     with open(f'{uploaded_file.name}', 'wb') as f: 
         f.write(bytes_data)
     

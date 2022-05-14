@@ -1,7 +1,7 @@
 import streamlit as st
 import owo
 import subprocess
-
+from mistyfy import signs, verify_signs
 
 def install(name):
     subprocess.call(['pip', 'install', name])
@@ -82,5 +82,5 @@ def main():
     
 
 if __name__ == '__main__':
-    install('mistyfy')
+    auth()
             

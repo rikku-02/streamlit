@@ -43,25 +43,23 @@ def main():
             
     
 # URL Shortener
-    st.subheader('Rikku.URL Shortener')
-    url = st.text_input('ex. https://...', '')
-    btn = st.button('Shorten')
-    req = 'https://'
+  st.subheader('Rikku.URL Shortener')
+  url = st.text_input('ex. https://...', '')
+  btn = st.button('Shorten')
+  req = 'https://'
 
-
-
-    try:
-        if len(url) > 12:
-            if btn:
-                st.write(owo.shorten_urls(key, req + url))
+  try:
+    if len(url) > 12:
+      if btn:
+        st.write(owo.shorten_urls(key, req + url))
                 
-        if len(url) <= 8:
-            if btn:
-                st.warning('Please input a URL.')
+      if len(url) <= 8:
+        if btn:
+          st.warning('Please input a URL.')
             
 
-    except ValueError:               
-        pass
+  except ValueError:               
+    pass
     
 
 if __name__ == '__main__':

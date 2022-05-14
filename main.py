@@ -32,10 +32,11 @@ def main():
             with open(f'{uploaded_file.name}', 'wb') as f: 
                 f.write(bytes_data)
     
-        if btnUp:           
-            with st.spinner('Uploading...'):
-                st.write(owo.upload_files(key, uploaded_file.name))
-                st.success('File Uploaded.')
+        if btnUp: 
+          st.write(owo.upload_files(key, uploaded_file.name))
+          st.success('File Uploaded.')
+            
+                
    
     except UnboundLocalError:
         st.warning('Please select a file.')

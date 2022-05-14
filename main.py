@@ -1,15 +1,6 @@
 import streamlit as st
 import owo
 import subprocess
-from mistyfy import signs, verify_signs
-
-def install(name):
-    subprocess.call(['pip', 'install', name])
-
-
-
-
-
 
 def auth():
     k = st.empty()
@@ -19,12 +10,7 @@ def auth():
     if priv_key == key:
         k.empty()
         st.success('Success.')
-        main()
-    
-
-
-
-    
+        main()  
 
 def main():
     try:
@@ -80,5 +66,6 @@ def main():
     except ValueError:               
         pass
     
-install('mistyfy')
-            
+
+if __name__ == '__main__':
+    auth()

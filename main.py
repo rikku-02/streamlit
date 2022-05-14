@@ -23,7 +23,7 @@ def main():
 
 
         st.subheader('Rikku.File Upload')
-        uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)
+        uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=False)
 
         btnUp = st.button('Upload')
 
@@ -33,8 +33,9 @@ def main():
                 f.write(bytes_data)
     
         if btnUp: 
-          st.write(owo.upload_files(key, uploaded_file.name))
-          st.success('File Uploaded.')
+          with st.spinner('Uploading...'):
+                st.write(owo.upload_files(key, uploaded_file.name))
+                st.success('File Uploaded.')
             
                 
    

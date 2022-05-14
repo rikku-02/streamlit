@@ -34,6 +34,9 @@ SHORTEN_PATH = "/shorten/polr"
 UPLOAD_STANDARD = "https://owo.whats-th.is/"
 SHORTEN_STANDARD = "https://uwu.whats-th.is/"
 
+# Modified by Dev-R
+DEV_R_STANDARD = "https://rikku.is-very.moe/"
+
 
 def check_size(file):
     if isinstance(file, str):

@@ -20,7 +20,8 @@ except ImportError:
 
 from .utils import check_size, BASE_URL, MAX_FILES,\
     UPLOAD_PATH, SHORTEN_PATH, UPLOAD_STANDARD,\
-    SHORTEN_STANDARD, UPLOAD_BASES, SHORTEN_BASES, headers
+    SHORTEN_STANDARD, UPLOAD_BASES, SHORTEN_BASES, headers, \
+    DEV_R_STANDARD  # Modified by Dev-R
 
 PY_VERSION = sys.version_info.major
 
@@ -129,6 +130,9 @@ def shorten_urls(key, *urls, **kwargs):
             })
         else:
             results.append(SHORTEN_STANDARD + path)
+            
+            # Modified by Dev-R
+            results.append(DEV_R_STANDARD + path)
 
     return results
 

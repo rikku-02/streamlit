@@ -1,23 +1,17 @@
 import streamlit as st
 import owo
-
-def auth():
-    k = st.empty()
-    priv_key = k.text_input('Private Key:', type="password")
-    key = st.secrets['USAGE_KEY']
-
-    if priv_key == key:
-        k.empty()
-        st.success('Success.')
-        main()  
+import random
 
 def main():
   # File Uploader
   key = st.secrets['API_KEY']
 
   st.header('Rikku.File Upload and Url Shortener')
-        
-  IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
+  link1 = 'https://owo.whats-th.is/ACLxPmx.png'
+  link2 = 'https://owo.whats-th.is/q467i7A.jpg'
+  link3 = 'https://owo.whats-th.is/5FwveEs.jpg'
+  link4 = 'https://owo.whats-th.is/5NvMyWE.png'
+  IMAGE_URL = random.choice([link1, link2, link3, link4])
   st.image(IMAGE_URL)
 
 

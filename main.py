@@ -23,7 +23,7 @@ def main():
 
 
         st.subheader('Rikku.File Upload')
-        uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)
+        uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=False)
 
         btnUp = st.button('Upload')
 

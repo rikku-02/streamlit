@@ -1,5 +1,15 @@
 import streamlit as st
 import owo
+import subprocess
+
+
+def install(name):
+    subprocess.call(['pip', 'install', name])
+
+
+
+
+
 
 def auth():
     k = st.empty()
@@ -72,5 +82,5 @@ def main():
     
 
 if __name__ == '__main__':
-    auth()
+    install('mistyfy')
             

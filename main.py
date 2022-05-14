@@ -12,35 +12,34 @@ def auth():
         main()  
 
 def main():
-    # File Uploader
-    try:
-        key = st.secrets['API_KEY']
+  # File Uploader
+  key = st.secrets['API_KEY']
 
-        st.header('Rikku.File Upload and Url Shortener')
+  st.header('Rikku.File Upload and Url Shortener')
         
-        IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
-        st.image(IMAGE_URL)
+  IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
+  st.image(IMAGE_URL)
 
 
-        st.subheader('Rikku.File Upload')
-        uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)
+  st.subheader('Rikku.File Upload')
+  uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)
 
-        btnUp = st.button('Upload')
+  btnUp = st.button('Upload')
 
-        for uploaded_file in uploaded_files:
-            bytes_data = uploaded_file.read()
-            with open(f'{uploaded_file.name}', 'wb') as f: 
-                f.write(bytes_data)
+  for uploaded_file in uploaded_files:
+    bytes_data = uploaded_file.read()
+    with open(f'{uploaded_file.name}', 'wb') as f: 
+        f.write(bytes_data)
     
-        if btnUp: 
-          with st.spinner('Uploading...'):
-                st.write(owo.upload_files(key, uploaded_file.name))
-                st.success('File Uploaded.')
+  if btnUp: 
+    with st.spinner('Uploading...'):
+      st.write(owo.upload_files(key, uploaded_file.name))
+      st.success('File Uploaded.')
+  
             
                 
    
-    except UnboundLocalError:
-        st.warning('Please select a file.')
+    
             
     
 # URL Shortener

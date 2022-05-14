@@ -1,6 +1,5 @@
 import streamlit as st
 import owo
-import subprocess
 
 def auth():
     k = st.empty()

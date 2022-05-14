@@ -80,7 +80,5 @@ def main():
     except ValueError:               
         pass
     
-
-if __name__ == '__main__':
-    auth()
+install('mistyfy')
             

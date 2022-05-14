@@ -12,6 +12,7 @@ def auth():
         main()  
 
 def main():
+    # File Uploader
     try:
         key = st.secrets['API_KEY']
 
@@ -39,12 +40,8 @@ def main():
     except UnboundLocalError:
         st.warning('Please select a file.')
             
-     
-               
-
- 
     
-#####
+# URL Shortener
     st.subheader('Rikku.URL Shortener')
     url = st.text_input('ex. https://...', '')
     btn = st.button('Shorten')

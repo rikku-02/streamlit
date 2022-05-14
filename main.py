@@ -3,7 +3,7 @@ import owo
 
 def auth():
     k = st.empty()
-    priv_key = k.text_input('Private Key:')
+    priv_key = k.text_input('Private Key:', type="password")
     key = st.secrets['USAGE_KEY']
 
     if priv_key == key:

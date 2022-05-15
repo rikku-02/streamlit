@@ -55,13 +55,14 @@ def main():
     req = 'https://'
 
     try:
-        if len(url) > 12:
+        if len(url) > 12 and req not in url:
           if btn:
             st.write(owo.shorten_urls(key, req + url))
 
-        if req in url:
+        else:
           if btn:
-                st.write(owo.shorten_urls(key, url))          
+            st.write(owo.shorten_urls(key, url))
+         
 
         if len(url) <= 8:
             if btn:

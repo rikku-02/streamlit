@@ -53,7 +53,7 @@ if build:
                 btn = st.download_button(
                     label="Download image",
                     data=file,
-                    file_name="image1.png",
+                    file_name=txt + '.png',
                     mime="image/png"
                 )
 

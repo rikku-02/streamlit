@@ -56,8 +56,12 @@ def main():
 
     try:
         if len(url) > 12:
-            if btn:
-                st.write(owo.shorten_urls(key, req + url))
+          if btn:
+            st.write(owo.shorten_urls(key, req + url))
+
+        if req in url:
+          if btn:
+                st.write(owo.shorten_urls(key, url))          
 
         if len(url) <= 8:
             if btn:
@@ -65,7 +69,7 @@ def main():
 
 
     except ValueError:
-        pass
+        st.warning('Please input a valid parameter.')
 
 
 if __name__ == '__main__':

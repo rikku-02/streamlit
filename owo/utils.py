@@ -31,7 +31,7 @@ BASE_URL = "https://api.awau.moe"
 UPLOAD_PATH = "/upload/pomf"
 SHORTEN_PATH = "/shorten/polr"
 
-UPLOAD_STANDARD = "https://owo.whats-th.is/"
+UPLOAD_STANDARD = "https://awau.moe/"
 SHORTEN_STANDARD = "https://uwu.whats-th.is/"
 
 # Modified by Dev-R

@@ -21,7 +21,12 @@ def main():
 
         st.header('Rikku.File Upload and Url Shortener')
 
-       
+        link1 = 'https://owo.whats-th.is/ACLxPmx.png'
+        link2 = 'https://owo.whats-th.is/q467i7A.jpg'
+        link3 = 'https://owo.whats-th.is/5FwveEs.jpg'
+        link4 = 'https://owo.whats-th.is/5NvMyWE.png'
+        IMAGE_URL = random.choice([link1, link2, link3, link4])
+        st.image(IMAGE_URL)
 
         st.subheader('Rikku.File Upload')
         uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)

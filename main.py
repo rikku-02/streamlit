@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
 
-st.image('https://owo.whats-th.is/ufDkZS8.gif', width=708)
+st.image('https://owo.whats-th.is/ufDkZS8.gif')
 st.title('Text Logo Maker by Rikkuチャン')
 txt = st.text_input('テクスト ( Text ): ')
 

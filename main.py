@@ -57,7 +57,7 @@ if build:
                     mime="image/png"
                 )
 
-    except (ZeroDivisionError, ValueError):
+    except (ZeroDivisionError, ValueError, SystemError):
         if txt == '':
             st.warning('Input Text Field')
         else:

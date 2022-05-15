@@ -23,7 +23,7 @@ headers = {
     "User-Agent": ("WhatsThisClient (https://github.com/whats-this/owo.py,"
                    " {}),".format(version))}
 
-MAX_FILES = 3
+MAX_FILES = 5
 MAX_SIZE = 83889080
 
 BASE_URL = "https://api.awau.moe"
@@ -31,7 +31,7 @@ BASE_URL = "https://api.awau.moe"
 UPLOAD_PATH = "/upload/pomf"
 SHORTEN_PATH = "/shorten/polr"
 
-UPLOAD_STANDARD = "https://awau.moe/"
+UPLOAD_STANDARD = "https://owo.whats-th.is/"
 SHORTEN_STANDARD = "https://uwu.whats-th.is/"
 
 # Modified by Dev-R

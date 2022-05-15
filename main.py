@@ -12,8 +12,8 @@ width = st.number_input('キャンバス・ウィツ ( Canvas Width ) [ CM ]: ',
 height = st.number_input('キャンバス・ハイト ( Canvas Height )[ CM ]: ', min_value=None, max_value=None, value=5)
 DPI = st.slider('ディー・ピー・アイ ( DPI ) [ Default: 72 DPI ]:', 72, 600, 72)
 
-bg_color = st.color_picker('バクグラウンド・カラー ( Background Color ):', '#fff')
-font_color = st.color_picker('フォント・カラー ( Font Color ):', '#000')
+bg_color = st.color_picker('バクグラウンド・カラー ( Background Color ):', '#000')
+font_color = st.color_picker('フォント・カラー ( Font Color ):', '#fff')
 
 build = st.button('ビルド →')
 # Set up parameters

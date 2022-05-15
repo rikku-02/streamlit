@@ -23,7 +23,7 @@ headers = {
     "User-Agent": ("WhatsThisClient (https://github.com/whats-this/owo.py,"
                    " {}),".format(version))}
 
-MAX_FILES = 5
+MAX_FILES = 3
 MAX_SIZE = 83889080
 
 BASE_URL = "https://api.awau.moe"

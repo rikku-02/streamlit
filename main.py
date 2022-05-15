@@ -43,7 +43,7 @@ def draw_text(font_size):
 
 if build:
     try:
-        with st.spinner('Chotto Matte...'):
+        with st.spinner('チョットー・マット ( Chotto Matte )...'):
             # Draw texts
             draw_text(font_Size)
             # Save images

@@ -129,10 +129,10 @@ def shorten_urls(key, *urls, **kwargs):
                 for base in SHORTEN_BASES
             })
         else:
-            #results.append(SHORTEN_STANDARD + path)
+            results.append(SHORTEN_STANDARD + path)
             
             # Modified by Dev-R
-            results.append(DEV_R_STANDARD + path)
+            # results.append(DEV_R_STANDARD + path)
 
     return results
 

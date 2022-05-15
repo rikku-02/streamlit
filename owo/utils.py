@@ -35,7 +35,7 @@ UPLOAD_STANDARD = "https://owo.whats-th.is/"
 SHORTEN_STANDARD = "https://uwu.whats-th.is/"
 
 # Modified by Dev-R
-DEV_R_STANDARD = "https://rikku.is-very.moe/"
+DEV_R_STANDARD = "https://dev-r.is-fi.re/"
 
 
 def check_size(file):

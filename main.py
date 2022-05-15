@@ -7,7 +7,7 @@ txt = st.text_input('テクスト ( Text ): ')
 
 font_style = st.selectbox('フォント・スタイル ( Font Style ):', ('Dream Catcher', 'Nyctographic', 'Thunderblack'))
 
-font_Size = st.number_input('フォント・サイズ ( Font Size ): ', min_value=None, max_value=None, value=20)
+font_Size = st.number_input('フォント・サイズ ( Font Size ): ', min_value=None, max_value=None, value=50)
 width = st.number_input('キャンバス・ウィツ ( Canvas Width ) [ CM ]: ', min_value=None, max_value=None, value=10)
 height = st.number_input('キャンバス・ハイト ( Canvas Height )[ CM ]: ', min_value=None, max_value=None, value=5)
 DPI = st.slider('ディー・ピー・アイ ( DPI ) [ Default: 72 DPI ]:', 72, 600, 72)

@@ -12,6 +12,7 @@ height = st.number_input('Canvas Height キャンバス・ハイト [ CM ]: ', m
 DPI = st.slider('DPI ディー・ピー・アイ [ Default: 72 DPI ]:', 72, 600, 72)
 bg_color = st.color_picker('Background Color バクグラウンド・カラー :', '#fff')
 font_color = st.color_picker('Font Color フォント・カラー :', '#000')
+border_color = st.color_picker('Border Color フォント・カラー :', '#fff')
 
 txt = st.text_input('Text テクスト : ')
 build = st.button('Build ビルド →')
@@ -30,10 +31,10 @@ h = int(h_cm / f * res_y)
 
 # Create new image with proper size
 img = Image.new('RGB', (w, h), color=bg_color)
+img_with_border = ImageOps.expand(img, border=1, fill=border_color)
 
 # Draw elements
-draw = ImageDraw.Draw(img)
-
+draw = ImageDraw.Draw(img_with_border)
 
 def draw_text(font_size):
     pick_font = f'Fonts/{font_style + ".ttf"}'
@@ -48,7 +49,7 @@ if build:
             # Draw texts
             draw_text(font_Size)
             # Save images
-            img.save(txt + '.png', dpi=(res_x, res_y))
+            img_with_border.save(txt + '.png', dpi=(res_x, res_y))
             st.image(txt + '.png')
             with open(txt + '.png', "rb") as file:
                 btn = st.download_button(

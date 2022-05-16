@@ -53,7 +53,7 @@ if build:
             st.image(txt + '.png')
             with open(txt + '.png', "rb") as file:
                 btn = st.download_button(
-                    label="Download image",
+                    label="Download",
                     data=file,
                     file_name=txt + '.png',
                     mime="image/png"

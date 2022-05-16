@@ -13,7 +13,7 @@ DPI = st.slider('DPI ディー・ピー・アイ [ Default: 72 DPI ]:', 72, 600,
 bg_color = st.color_picker('Background Color バクグラウンド・カラー :', '#fff')
 font_color = st.color_picker('Font Color フォント・カラー :', '#000')
 border_color = st.color_picker('Border Color ボーダー・カラー :', '#000')
-
+border_weight = st.slider('Border Weight ボーダー・ウェート [0 = No Border]:', 0, 10, 2)
 txt = st.text_input('Text テクスト : ')
 build = st.button('Build ビルド →')
 
@@ -31,7 +31,7 @@ h = int(h_cm / f * res_y)
 
 # Create new image with proper size
 img = Image.new('RGB', (w, h), color=bg_color)
-img_with_border = ImageOps.expand(img, border=1, fill=border_color)
+img_with_border = ImageOps.expand(img, border=border_weight, fill=border_color)
 
 # Draw elements
 draw = ImageDraw.Draw(img_with_border)

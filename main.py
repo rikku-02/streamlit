@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 st.image('https://owo.whats-th.is/ufDkZS8.gif')
 st.title('Text Logo Maker by Rikkuチャン')

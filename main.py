@@ -12,7 +12,7 @@ height = st.number_input('Canvas Height キャンバス・ハイト [ CM ]: ', m
 DPI = st.slider('DPI ディー・ピー・アイ [ Default: 72 DPI ]:', 72, 600, 72)
 bg_color = st.color_picker('Background Color バクグラウンド・カラー :', '#fff')
 font_color = st.color_picker('Font Color フォント・カラー :', '#000')
-border_color = st.color_picker('Border Color フォント・カラー :', '#fff')
+border_color = st.color_picker('Border Color フォント・カラー :', '#000')
 
 txt = st.text_input('Text テクスト : ')
 build = st.button('Build ビルド →')

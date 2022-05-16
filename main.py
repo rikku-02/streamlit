@@ -3,19 +3,19 @@ from PIL import Image, ImageDraw, ImageFont
 
 st.image('https://owo.whats-th.is/ufDkZS8.gif')
 st.title('Text Logo Maker by Rikkuチャン')
-txt = st.text_input('テクスト ( Text ): ')
 
-font_style = st.selectbox('フォント・スタイル ( Font Style ):', ('Dream Catcher', 'Nyctographic', 'Thunderblack'))
 
-font_Size = st.number_input('フォント・サイズ ( Font Size ): ', min_value=None, max_value=None, value=50)
-width = st.number_input('キャンバス・ウィツ ( Canvas Width ) [ CM ]: ', min_value=None, max_value=None, value=10)
-height = st.number_input('キャンバス・ハイト ( Canvas Height )[ CM ]: ', min_value=None, max_value=None, value=5)
-DPI = st.slider('ディー・ピー・アイ ( DPI ) [ Default: 72 DPI ]:', 72, 600, 72)
+font_style = st.selectbox('Font Style フォント・スタイル :', ('Dream_Catcher', 'Nyctographic', 'Thunderblack', 'Perpetrator_Italic', 'Perpetrator_Regular', 'Sparkles', 'Translator'))
+font_Size = st.number_input('Font Size フォント・サイズ : ', min_value=None, max_value=None, value=20)
+width = st.number_input('Canvas Width キャンバス・ウィツ [ CM ]: ', min_value=None, max_value=None, value=10)
+height = st.number_input('Canvas Height キャンバス・ハイト [ CM ]: ', min_value=None, max_value=None, value=5)
+DPI = st.slider('DPI ディー・ピー・アイ [ Default: 72 DPI ]:', 72, 600, 72)
+bg_color = st.color_picker('Background Color バクグラウンド・カラー :', '#fff')
+font_color = st.color_picker('Font Color フォント・カラー :', '#000')
 
-bg_color = st.color_picker('バクグラウンド・カラー ( Background Color ):', '#000')
-font_color = st.color_picker('フォント・カラー ( Font Color ):', '#fff')
+txt = st.text_input('Text テクスト : ')
+build = st.button('Build ビルド →')
 
-build = st.button('ビルド →')
 # Set up parameters
 w_cm, h_cm = (width, height)  # Real label size in cm
 res_x, res_y = (DPI, DPI)  # Desired resolution
@@ -36,7 +36,8 @@ draw = ImageDraw.Draw(img)
 
 
 def draw_text(font_size):
-    font = ImageFont.truetype(font_style + '.ttf', int(font_size / (res_y_old / res_y)))
+    pick_font = f'Fonts/{font_style + ".ttf"}'
+    font = ImageFont.truetype(pick_font, int(font_size / (res_y_old / res_y)))
     # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
     draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=txt, font=font, fill=font_color, anchor='mm')
 

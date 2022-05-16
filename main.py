@@ -63,4 +63,4 @@ if build:
         if txt == '':
             st.warning('Input Text Field')
         else:
-            st.warning('Input Valid Parameters')
+            st.warning('Please input a valid parameters')

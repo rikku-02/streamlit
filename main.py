@@ -1,9 +1,7 @@
 import img2pdf
-from streamlit_player import st_player
 import streamlit as st
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-st_player("https://www.youtube.com/watch?v=mPWjrD9-hXk")
 st.image('https://owo.whats-th.is/3pBJaga.png')
 st.title('Text Logo Maker by Rikkuチャン')
 

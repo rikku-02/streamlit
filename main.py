@@ -17,9 +17,12 @@ if btnUp:
   with st.spinner('Uploading...'):
     image_1 = Image.open(uploaded_file.name)
     im_1 = image_1.convert('RGB')
-    dev = im_1.save('Output.pdf')
+    im_1.save('Output.pdf')
 
-    st.download_button(label="Download", 
-                      data=dev,
-                      file_name="Output.pdf",
-                      mime='application/octet-stream')
+    with open("Output.pdf", "rb") as pdf_file:
+      PDFbyte = pdf_file.read()
+
+      st.download_button(label="Download", 
+                       data=PDFbyte,
+                       file_name="Output.pdf",
+                       mime='application/octet-stream')

@@ -26,10 +26,4 @@ if btnUp:
       builder.writeln()
 
       pdf = doc.save("Output.pdf");
-
-      st.download_button(
-       label="Download data as CSV",
-       data=pdf,
-       file_name='output.pdf',
-       mime='text/pdf',
-   )
+      

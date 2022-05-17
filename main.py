@@ -59,9 +59,14 @@ if build:
                     mime="image/png"
                 )
                 btn = st.buton('Concatenate Image')
+                if btn:
+                  hello()
 
     except (ZeroDivisionError, ValueError, SystemError):
         if txt == '':
             st.warning('Input Text Field')
         else:
             st.warning('Input Valid Parameters')
+
+def hello():
+  pass

@@ -1,5 +1,5 @@
 import streamlit as st
-import aspose.words as aw
+from PIL import Image
 
 
 
@@ -15,22 +15,11 @@ for uploaded_file in uploaded_files:
 
 if btnUp:
   with st.spinner('Uploading...'):
-    fileNames = [uploaded_file.name]
+    image_1 = Image.open(uploaded_file.name)
+    im_1 = image_1.convert('RGB')
+    dev = im_1.save('Output.pdf')
 
-    doc = aw.Document()
-    builder = aw.DocumentBuilder(doc)
-
-    for fileName in fileNames:
-      builder.insert_image(fileName)
-    # Insert a paragraph break to avoid overlapping images.
-      builder.writeln()
-
-      pdf = doc.save("Output.pdf");
-      
-      with open("Output.pdf", "rb") as pdf_file:
-          PDFbyte = pdf_file.read()
-
-      st.download_button(label="Download", 
-                        data=PDFbyte,
-                        file_name="Output.pdf",
-                        mime='application/octet-stream')
+    st.download_button(label="Download", 
+                      data=dev,
+                      file_name="Output.pdf",
+                      mime='application/octet-stream')

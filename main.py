@@ -44,7 +44,7 @@ def draw_text(font_size):
 
 
 def hello():
-  pass
+  print('hehe')
   
 if build:
     try:

@@ -1,6 +1,7 @@
 import streamlit as st
+import img2pdf
 from PIL import Image
-
+import os
 
 
 uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)
@@ -15,11 +16,17 @@ for uploaded_file in uploaded_files:
 
 if btnUp:
   with st.spinner('Uploading...'):
-    image_1 = Image.open(uploaded_file.name)
-    im_1 = image_1.convert('RGB')
-    im_1.save('Output.pdf')
+    image = Image.open(uploaded_file.name)
+    pdf_path = "file.pdf"
+    pdf_bytes = img2pdf.convert(image.filename)
 
-    with open("Output.pdf", "rb") as pdf_file:
+    with open(pdf_path, "rb") as pdf_file:
+      PDFbyte = pdf_file.write(pdf_bytes)
+      image.close()
+      file.close()
+    
+
+    with open("file.pdf", "rb") as pdf_file:
       PDFbyte = pdf_file.read()
 
       st.download_button(label="Download", 

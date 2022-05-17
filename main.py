@@ -43,8 +43,31 @@ def draw_text(font_size):
     draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=txt, font=font, fill=font_color, anchor='mm')
 
 
-def hello():
-  print('hehe')
+def concatenate_image():
+  with open(txt + '.png', "rb") as file:
+    img = Image.open(file)
+
+    def get_concat_h_repeat(im, column):
+        dst = Image.new('RGB', (im.width * column, im.height))
+        for x in range(column):
+            dst.paste(im, (x * im.width, 0))
+        return dst
+
+    def get_concat_v_repeat(im, row):
+        dst = Image.new('RGB', (im.width, im.height * row))
+        for y in range(row):
+            dst.paste(im, (0, y * im.height))
+        return dst
+
+    def get_concat_tile_repeat(im, row, column):
+        dst_h = get_concat_h_repeat(im, column)
+        return get_concat_v_repeat(dst_h, row)
+
+    im_s = img.resize((img.width // 2, img.height // 2))
+    get_concat_tile_repeat(im_s, 10, 5).save('concat.jpg')
+    st.image('concat.jpg')
+  
+  
   
 if build:
     try:
@@ -63,7 +86,7 @@ if build:
                 )
                 btn = st.button('Concatenate Image')
                 if btn:
-                  hello()
+                  concatenate_image()
                 
 
     except (ZeroDivisionError, ValueError, SystemError):

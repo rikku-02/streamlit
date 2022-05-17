@@ -58,6 +58,7 @@ if build:
                     file_name=txt + '.png',
                     mime="image/png"
                 )
+                btn = st.buton('Concatenate Image')
 
     except (ZeroDivisionError, ValueError, SystemError):
         if txt == '':

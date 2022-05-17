@@ -14,13 +14,13 @@ for uploaded_file in uploaded_files:
 
 if btnUp:
   with st.spinner('Uploading...'):
-    with open("sample.pdf","wb") as f:
+    with open(uploaded_file.name + '.pdf',"wb") as f:
 	    f.write(img2pdf.convert(uploaded_file.name))
     
-    with open("sample.pdf", "rb") as pdf_file:
+    with open(uploaded_file.name + '.pdf', "rb") as pdf_file:
       PDFbyte = pdf_file.read()
 
       st.download_button(label="Download", 
                        data=PDFbyte,
-                       file_name="Output.pdf",
+                       file_name=uploaded_file.name + '.pdf',
                        mime='application/octet-stream')

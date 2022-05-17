@@ -27,10 +27,10 @@ if btnUp:
 
       pdf = doc.save("Output.pdf");
       
-    with open(uploaded_file.name, "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
+      with open("Output.pdf", "rb") as pdf_file:
+          PDFbyte = pdf_file.read()
 
-    st.download_button(label="Download", 
-                       data=PDFbyte,
-                       file_name="Output.pdf",
-                       mime='application/octet-stream')
+      st.download_button(label="Download", 
+                        data=PDFbyte,
+                        file_name="Output.pdf",
+                        mime='application/octet-stream')

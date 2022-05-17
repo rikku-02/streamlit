@@ -63,6 +63,7 @@ if build:
                   with open(txt + '.png', "rb") as img:
                     im_s = img.resize((img.width // 2, img.height // 2))
                     get_concat_tile_repeat(im_s, 10, 5).save('concat.jpg')
+                    st.image('concat.jpg')
                   
                 
 

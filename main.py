@@ -43,6 +43,9 @@ def draw_text(font_size):
     draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=txt, font=font, fill=font_color, anchor='mm')
 
 
+def hello():
+  pass
+  
 if build:
     try:
         with st.spinner('Chotto Matte チョットー・マット...'):
@@ -68,5 +71,3 @@ if build:
         else:
             st.warning('Input Valid Parameters')
 
-def hello():
-  pass

@@ -27,3 +27,7 @@ if btnUp:
 
       pdf = doc.save("Output.pdf");
       
+      st.download_button(label="Export_Report",
+                    data=pdf,
+                    file_name="output.pdf",
+                    mime='application/octet-stream')

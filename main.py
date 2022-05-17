@@ -52,7 +52,7 @@ if build:
             img_with_border.save(txt + '.png', dpi=(res_x, res_y))
             st.image(txt + '.png')
             with open(txt + '.png', "rb") as file:
-                btn = st.download_button(
+                st.download_button(
                     label="Download",
                     data=file,
                     file_name=txt + '.png',

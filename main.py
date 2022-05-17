@@ -27,7 +27,10 @@ if btnUp:
 
       pdf = doc.save("Output.pdf");
       
-      st.download_button(label="Export_Report",
-                    data=pdf,
-                    file_name="output.pdf",
-                    mime='application/octet-stream')
+    with open(uploaded_file.name, "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+
+    st.download_button(label="Download", 
+                       data=PDFbyte,
+                       file_name="Output.pdf",
+                       mime='application/octet-stream')

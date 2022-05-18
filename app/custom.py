@@ -50,3 +50,10 @@ def app():
                                        file_name=uploaded_file.name + '.pdf',
                                        mime='application/octet-stream')
 
+
+
+code = '''
+    def Release Notes():
+        Image_Border = "Not yet implemented"
+        Image_Resize = "Not yet implemented"'''
+    st.code(code, language='python')

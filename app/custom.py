@@ -13,11 +13,12 @@ def app():
         bytes_data = uploaded_file.read()
         with open(f'{uploaded_file.name}', 'wb') as f:
             f.write(bytes_data)
+            st.success('File Uploaded.')
 
         if btnUp:
             with st.spinner('Uploading...'):
                 img_c = Image.open(uploaded_file.name)
-                st.success('File Uploaded.')
+                
 
                 def get_concat_h_repeat(im, column):
                     dst = Image.new('RGB', (im.width * column, im.height))

@@ -52,7 +52,7 @@ def app():
 
 
 
-code = '''
+    code = '''
     def Release Notes():
         Image_Border = "Not yet implemented"
         Image_Resize = "Not yet implemented"'''

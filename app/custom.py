@@ -13,7 +13,7 @@ def app():
         bytes_data = uploaded_file.read()
         with open(f'{uploaded_file.name}', 'wb') as f:
             f.write(bytes_data)
-            st.success('File Uploaded.')
+            
 
         if btnUp:
             with st.spinner('Uploading...'):

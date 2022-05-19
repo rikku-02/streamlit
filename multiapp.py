@@ -71,7 +71,7 @@ class MultiApp1:
     def __init__(self):
         self.apps = []
 
-    def add_app(self, title, func):
+    def add_app1(self, title, func):
         """Adds a new application.
         Parameters
         ----------

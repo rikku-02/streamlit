@@ -13,7 +13,7 @@ app.add_app("Home", home.app)
 app.add_app("Create", create.app)
 app.add_app("Upload your Custom Design", custom.app)
 
-app1.add_app("Home", home.app)
+app1.add_app("Hee", home.app)
 
 # The main app
 app.run()

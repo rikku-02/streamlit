@@ -1,10 +1,9 @@
 import streamlit as st
-from multiapp import MultiApp
+from multiapp import MultiApp, MultiApp1
 from app import home, create, custom
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 app = MultiApp()
-app1 = MultiApp()
 
 st.image('https://owo.whats-th.is/3pBJaga.png')
 st.title('Text Logo Maker by Rikkuチャン')

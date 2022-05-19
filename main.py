@@ -4,7 +4,7 @@ from app import home, create, custom
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 app = MultiApp()
-app = MultiApp1()
+app1 = MultiApp1()
 
 st.image('https://owo.whats-th.is/3pBJaga.png')
 st.title('Text Logo Maker by Rikkuチャン')

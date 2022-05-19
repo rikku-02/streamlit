@@ -7,7 +7,7 @@ import os
 
 # Dev-R
 st.set_page_config(
-   page_title="YT to Mp3",
+   page_title="YouTube to Mp3 by Devr-R",
    page_icon="https://cdn3.iconfinder.com/data/icons/e-commerce-35/74/money_conversion-512.png",
    layout='centered',
    initial_sidebar_state="collapsed",

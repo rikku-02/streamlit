@@ -18,40 +18,44 @@ st.set_page_config(
      }
 )
 
-st.image('https://owo.whats-th.is/8G7k3AX.png')
-st.header('YouTube to Mp3 Converter')
-
 filePath = ''
 
 url = st.text_input(label='URL: ')
+code = """
+def release_notes():
+    YouTube_to_MP4 = 'Bukas na Hahahaha'"""
 
-convert = st.button('Convert')
+st.code(code, language='Python')
+try:
+    yti = YouTube(url)
+    st.subheader(yti.title)
+    st.image(yti.thumbnail_url, width=200)
+    sec = yti.length
+    res = datetime.timedelta(seconds=sec)
+    st.text(f'Duration: {res} ')
+    convert = st.button('Convert')
 
-if convert:
-    try:
-        yti = YouTube(url)
-        st.subheader(yti.title)
-        st.image(yti.thumbnail_url, width=200)
-        sec = yti.length
-        res = datetime.timedelta(seconds=sec)
-        st.text(f'Duration: {res} ')
+    if convert:
+        try:
+            with st.spinner('Converting...'):
+                yt = YouTube(url)
 
-        with st.spinner('Converting...'):
-            yt = YouTube(url)
+                yt.streams.filter(only_audio=True)
+                stream = yt.streams.get_by_itag(140)
 
-            yt.streams.filter(only_audio=True)
-            stream = yt.streams.get_by_itag(140)
+                freshDownload = stream.download(filePath)
 
-            freshDownload = stream.download(filePath)
+                basePath, extension = os.path.splitext(freshDownload)
 
-            basePath, extension = os.path.splitext(freshDownload)
+                video = AudioFileClip(os.path.join(basePath + ".mp4"))
+                video.write_audiofile(os.path.join(basePath + ".mp3"))
 
-            video = AudioFileClip(os.path.join(basePath + ".mp4"))
-            video.write_audiofile(os.path.join(basePath + ".mp3"))
+                with open(os.path.join(basePath + ".mp3"), 'rb') as f:
+                    st.success('Successful! Download Now ⬇')
+                    st.download_button('Download Mp3', f, file_name=yt.title + '.mp3')
 
-            with open(os.path.join(basePath + ".mp3"), 'rb') as f:
-                st.success('Success!')
-                st.download_button('Download', f, file_name=yt.title + '.mp3')
+        except RegexMatchError:
+            st.warning('Please input a valid URL!')
 
-    except RegexMatchError:
-        st.warning('Please input a valid URL!')
+except RegexMatchError:
+    pass

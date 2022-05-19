@@ -90,7 +90,7 @@ class MultiApp1:
         app1 = st.sidebar.radio(
             '[Navigation]',
             self.apps,
-            format_func=lambda app1: app1['title'])
+            format_func=lambda app: app1['title'])
 
         app1['function']()
 

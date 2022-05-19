@@ -28,7 +28,7 @@ code = """
 def Release_Notes():
     YouTube_to_MP4 = 'Bukas na Hahahaha'"""
 
-st.code(code, language='Python')
+st.code(code, language='python')
 if url == '':
     pass
 

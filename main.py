@@ -1,26 +1,36 @@
 import streamlit as st
-import img2pdf
+from pytube import YouTube
+import datetime
+from moviepy.editor import *
+import os
 
+filePath = ''
 
-uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)
+url = st.text_input(label='URL: ')
 
-btnUp = st.button('Upload')
+convert = st.button('Convert')
 
-for uploaded_file in uploaded_files:
-  bytes_data = uploaded_file.read()
-  with open(f'{uploaded_file.name}', 'wb') as f:
-                f.write(bytes_data)
+if convert:
+    yti = YouTube(url)
+    st.subheader(yti.title)
+    st.image(yti.thumbnail_url, width=200)
+    sec = yti.length
+    res = datetime.timedelta(seconds=sec)
+    st.text(f'Duration: {res} ')
 
+    with st.spinner('Converting...'):
+        yt = YouTube(url)
 
-if btnUp:
-  with st.spinner('Uploading...'):
-    with open(uploaded_file.name + '.pdf',"wb") as f:
-	    f.write(img2pdf.convert(uploaded_file.name))
-    
-    with open(uploaded_file.name + '.pdf', "rb") as pdf_file:
-      PDFbyte = pdf_file.read()
+        yt.streams.filter(only_audio=True)
+        stream = yt.streams.get_by_itag(140)
 
-      st.download_button(label="Download", 
-                       data=PDFbyte,
-                       file_name=uploaded_file.name + '.pdf',
-                       mime='application/octet-stream')
+        freshDownload = stream.download(filePath)
+
+        basePath, extension = os.path.splitext(freshDownload)
+
+        video = AudioFileClip(os.path.join(basePath + ".mp4"))
+        video.write_audiofile(os.path.join(basePath + ".mp3"))
+
+        with open(os.path.join(basePath + ".mp3"), 'rb') as f:
+            st.success('Success!')
+            st.download_button('Download', f, file_name=yt.title + '.mp3')

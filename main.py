@@ -25,21 +25,24 @@ filePath = ''
 
 url = st.text_input(label='URL: ')
 code = """
-def release_notes():
+def Releas_Notes():
     YouTube_to_MP4 = 'Bukas na Hahahaha'"""
 
 st.code(code, language='Python')
-try:
-    yti = YouTube(url)
-    st.subheader(yti.title)
-    st.image(yti.thumbnail_url, width=200)
-    sec = yti.length
-    res = datetime.timedelta(seconds=sec)
-    st.text(f'Duration: {res} ')
-    convert = st.button('Convert')
+if url == '':
+    pass
 
-    if convert:
-        try:
+else:
+    try:
+        yti = YouTube(url)
+        st.subheader(yti.title)
+        st.image(yti.thumbnail_url, width=200)
+        sec = yti.length
+        res = datetime.timedelta(seconds=sec)
+        st.text(f'Duration: {res} ')
+        convert = st.button('Convert')
+
+        if convert:
             with st.spinner('Converting...'):
                 yt = YouTube(url)
 
@@ -57,8 +60,5 @@ try:
                     st.success('Successful! Download Now ⬇')
                     st.download_button('Download Mp3', f, file_name=yt.title + '.mp3')
 
-        except RegexMatchError:
-            st.warning('Please input a valid URL!')
-
-except RegexMatchError:
-    pass
+    except RegexMatchError:
+        st.warning('Please input a valid URL!')

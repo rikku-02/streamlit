@@ -18,6 +18,9 @@ st.set_page_config(
      }
 )
 
+st.image('https://owo.whats-th.is/8G7k3AX.png')
+st.header('YouTube to Mp3 Converter')
+
 filePath = ''
 
 url = st.text_input(label='URL: ')

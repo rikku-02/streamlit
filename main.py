@@ -4,6 +4,9 @@ import datetime
 from moviepy.editor import *
 import os
 
+st.image('https://owo.whats-th.is/8G7k3AX.png')
+st.header('YouTube to Mp3 Converter')
+
 filePath = ''
 
 url = st.text_input(label='URL: ')
@@ -33,4 +36,4 @@ if convert:
 
         with open(os.path.join(basePath + ".mp3"), 'rb') as f:
             st.success('Success!')
-            st.download_button('Download', f, file_name=yt.title + '.mp3')
+            st.download_button('Download Mp3', f, file_name=yt.title + '.mp3')

@@ -25,7 +25,7 @@ filePath = ''
 
 url = st.text_input(label='URL: ')
 code = """
-def Releas_Notes():
+def Release_Notes():
     YouTube_to_MP4 = 'Bukas na Hahahaha'"""
 
 st.code(code, language='Python')

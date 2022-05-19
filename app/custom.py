@@ -54,7 +54,7 @@ def app():
 
 
     code = '''
-    def Release Notes():
+    def Release_Notes():
         Image_Border = "Not yet implemented"
         Image_Resize = "Not yet implemented"'''
     st.code(code, language='python')

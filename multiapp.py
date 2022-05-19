@@ -87,11 +87,11 @@ class MultiApp1:
 
     def run(self):
         # app = st.sidebar.radio(
-        app = st.sidebar.radio(
+        app1 = st.sidebar.radio(
             '[Navigation]',
             self.apps,
-            format_func=lambda app: app['title'])
+            format_func=lambda app1: app1['title'])
 
-        app['function']()
+        app1['function']()
 
         

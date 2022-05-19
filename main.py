@@ -6,6 +6,18 @@ from moviepy.editor import *
 import os
 
 # Dev-R
+st.set_page_config(
+   page_title="YT to Mp3",
+   page_icon="https://cdn3.iconfinder.com/data/icons/e-commerce-35/74/money_conversion-512.png",
+   layout='centered',
+   initial_sidebar_state="collapsed",
+   menu_items={
+         'Get Help': 'https://fb.me/devric.ui',
+         'Report a bug': "https://fb.me/devric.ui",
+         'About': "# Created by Dev-R"
+     }
+)
+
 st.image('https://owo.whats-th.is/8G7k3AX.png')
 st.header('YouTube to Mp3 Converter')
 

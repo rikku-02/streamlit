@@ -7,8 +7,10 @@ import os
 
 # Dev-R
 
-st.subheader('MP3 Convert')
+
 def app():
+    st.subheader('MP3 Convert')
+  
     filePath = ''
 
     url = st.text_input(label='URL: ')

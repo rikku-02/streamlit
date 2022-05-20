@@ -40,7 +40,7 @@ class MultiApp:
 
     def run(self):
         app = st.sidebar.radio(
-            'Navigation',
+            'YouTube Converter',
             self.apps,
             format_func=lambda app: app['title'])
 

@@ -1,6 +1,6 @@
 import streamlit as st
 from multiapp import MultiApp
-from apps import ytmp3, ytmp4
+from apps import RN, ytmp3, ytmp4
 
 app = MultiApp()
 # Dev-R
@@ -18,14 +18,8 @@ st.set_page_config(
 
 st.image('https://owo.whats-th.is/6JbgvJX.png')
 
-code = """
-   def Release_Notes():
-       Side Bar Nav = "Implemented at the Top Left"
-       YouTube_to_MP4 = "We're working on that.."
-"""
 
-st.code(code, language='python')
-
+app.add_app("Release Notes", RN.app)
 app.add_app("Convert to Mp3", ytmp3.app)
 app.add_app("Convert to Mp4", ytmp4.app)
 app.run()

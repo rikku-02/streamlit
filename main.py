@@ -41,7 +41,7 @@ else:
         sec = yti.length
         res = datetime.timedelta(seconds=sec)
         st.text(f'Duration: {res} ')
-        convert = st.button('Convert')
+        # convert = st.button('Convert')
 
         if convert:
             with st.spinner('Converting...'):

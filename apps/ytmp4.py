@@ -48,5 +48,5 @@ def app():
             st.warning('Please input a valid URL!')
         
         except VideoUnavailable:
-            st.warning("Sorry, the link you've entered is Unavailable")
+            st.warning("Sorry, the link you've entered is Unavailable.")
 

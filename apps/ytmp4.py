@@ -2,10 +2,12 @@ import streamlit as st
 from pytube import YouTube
 from pytube.exceptions import RegexMatchError
 import datetime
+import os
 
 
 def app():
     st.header('Convert to MP4 📹')
+
     filePath = ''
 
     url = st.text_input(label='URL: ')
@@ -31,11 +33,13 @@ def app():
                     yt.streams.filter(only_audio=True)
                     stream = yt.streams.get_by_itag(22)
 
-                    stream.download(filePath)
+                    freshDownload = stream.download(filePath)
 
-                    with open(yt.title + '.mp4', 'rb') as f:
+                    basePath, extension = os.path.splitext(freshDownload)
+
+                    with open(os.path.join(basePath + ".mp4"), 'rb') as f:
                         st.success('Successful! Download Now ⬇')
                         st.download_button('Download Mp4', f, file_name=yt.title + '.mp4')
 
         except RegexMatchError:
-            st.warning('Please input a valid URL!')
+            st.warning('Please input a valid URL!') 

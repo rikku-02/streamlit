@@ -20,7 +20,7 @@ st.image('https://owo.whats-th.is/6JbgvJX.png')
 
 code = """
    def Release_Notes():
-       Side Bar Nav = "Implemented at Top Left"
+       Side Bar Nav = "Implemented at the Top Left"
        YouTube_to_MP4 = "We're working on that.."
 """
 

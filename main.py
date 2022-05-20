@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 st.image('https://owo.whats-th.is/8G7k3AX.png')
-st.header('YouTube to Mp3/Mp4 Converter')
+st.title('YouTube to Mp3/Mp4 Converter')
 
 app.add_app("YT_Convert to Mp3", ytmp3.app)
 

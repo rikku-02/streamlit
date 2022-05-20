@@ -2,6 +2,7 @@ import streamlit as st
 from multiapp import MultiApp
 from apps import ytmp3
 
+app = MultiApp()
 # Dev-R
 st.set_page_config(
    page_title="YouTube to Mp3 by Devr-R",

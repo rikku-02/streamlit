@@ -9,7 +9,7 @@ import os
 
 
 def app():
-    st.subheader('Convert to Mp3')
+    st.header('Convert to MP3 🎶')
   
     filePath = ''
 

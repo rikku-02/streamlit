@@ -22,7 +22,7 @@ code = """
    def Release_Notes():
        Side Bar Nav = "Implemented at Top Left"
        YouTube_to_MP4 = "We're working on that.."
-""
+"""
 
 st.code(code, language='python')
 

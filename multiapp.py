@@ -41,7 +41,7 @@ class MultiApp:
     def run(self):
         st.sidebar.subheader('All Applications')
         app = st.sidebar.radio(
-            'YouTube Converter',
+            'YouTube Utils ',
             self.apps,
             format_func=lambda app: app['title'])
 

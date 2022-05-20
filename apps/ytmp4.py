@@ -1,6 +1,7 @@
 import streamlit as st
 from pytube import YouTube
 from pytube.exceptions import RegexMatchError
+from moviepy.editor import *
 import datetime
 import os
 
@@ -37,9 +38,12 @@ def app():
 
                     basePath, extension = os.path.splitext(freshDownload)
 
+                    video = AudioFileClip(os.path.join(basePath + ".mp4"))
+                    video.close()
+
                     with open(os.path.join(basePath + ".mp4"), 'rb') as f:
                         st.success('Successful! Download Now ⬇')
                         st.download_button('Download Mp4', f, file_name=yt.title + '.mp4')
 
         except RegexMatchError:
-            st.warning('Please input a valid URL!') 
+            st.warning('Please input a valid URL!')

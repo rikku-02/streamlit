@@ -9,17 +9,13 @@ import os
 
 
 def app():
-    st.subheader('MP3 Convert')
+    st.subheader('Convert to Mp3')
   
     filePath = ''
 
     url = st.text_input(label='URL: ')
     convert = st.button('Convert')
-    code = """
-    def Release_Notes():
-        YouTube_to_MP4 = 'Hmm..'"""
 
-    st.code(code, language='python')
     if url == '':
         pass
 

@@ -1,6 +1,6 @@
 import streamlit as st
 from pytube import YouTube
-from pytube.exceptions import RegexMatchError
+from pytube.exceptions import RegexMatchError, VideoUnavailable
 import datetime
 from moviepy.editor import *
 import os
@@ -49,4 +49,7 @@ def app():
 
         except RegexMatchError:
             st.warning('Please input a valid URL!')
+
+        except VideoUnavailable:
+            st.warning("Sorry, the link you've entered is Unavailable")
 

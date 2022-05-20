@@ -1,6 +1,6 @@
 import streamlit as st
 from pytube import YouTube
-from pytube.exceptions import RegexMatchError
+from pytube.exceptions import RegexMatchError, VideoUnavailable
 from moviepy.editor import *
 import datetime
 import os
@@ -31,7 +31,6 @@ def app():
                 with st.spinner('Converting...'):
                     yt = YouTube(url)
 
-                    yt.streams.filter(only_audio=True)
                     stream = yt.streams.get_by_itag(22)
 
                     freshDownload = stream.download(filePath)
@@ -47,3 +46,7 @@ def app():
 
         except RegexMatchError:
             st.warning('Please input a valid URL!')
+        
+        except VideoUnavailable:
+            st.warning("Sorry, the link you've entered is Unavailable")
+

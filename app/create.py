@@ -14,7 +14,7 @@ def app():
     bg_color = st.color_picker('Background Color バクグラウンド・カラー :', '#000')
     font_color = st.color_picker('Font Color フォント・カラー :', '#fff')
     border_color = st.color_picker('Border Color ボーダー・カラー :', '#fff')
-    border_weight = st.slider('Border Weight ボーダー・ウェート [0 = No Border]:', 0, 10, 2)
+    border_weight = st.slider('Border Weight ボーダー・ウェート [0 = No Border]:', 0, 20, 2)
     txt = st.text_input('Text テクスト : ')
     build = st.button('Build ビルド →')
 

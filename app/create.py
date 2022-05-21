@@ -86,7 +86,11 @@ def app():
     btn1 = st.button('Concatenate Image')
     if btn1:
         try:
-            with st.spinner('Concatenating...'):
+            if vertical_row > 25 and horizontal_row > 10:
+              st.warning('Limit is V: 25 and H: 10. Please try different row count.')
+
+            else:
+              with st.spinner('Concatenating...'):
                 img_c = Image.open(txt + '.png')
                 im_s = img_c.resize((img_c.width // 2, img_c.height // 2))
                 get_concat_tile_repeat(im_s, vertical_row, horizontal_row).save('concat.jpg')

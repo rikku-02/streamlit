@@ -85,27 +85,34 @@ def app():
     horizontal_row = st.number_input('Number of rows in Horizontal: ', min_value=None, max_value=None, value=1)
     btn1 = st.button('Concatenate Image')
     if btn1:
-        try:
-            with st.spinner('Concatenating...'):
-                img_c = Image.open(txt + '.png')
-                im_s = img_c.resize((img_c.width // 2, img_c.height // 2))
-                get_concat_tile_repeat(im_s, vertical_row, horizontal_row).save('concat.jpg')
-                st.image('concat.jpg')
+        if vertical_row <= 25 and horizontal_row <= 10:
+            try:
+                with st.spinner('Concatenating...'):
+                    img_c = Image.open(txt + '.png')
+                    im_s = img_c.resize((img_c.width // 2, img_c.height // 2))
+                    get_concat_tile_repeat(im_s, vertical_row, horizontal_row).save('concat.jpg')
+                    st.image('concat.jpg')
 
-                with open(txt + '.pdf', "wb") as f:
-                    f.write(img2pdf.convert('concat.jpg'))
+                    with open(txt + '.pdf', "wb") as f:
+                        f.write(img2pdf.convert('concat.jpg'))
 
-                with open(txt + '.pdf', "rb") as pdf_file:
-                    PDF = pdf_file.read()
+                    with open(txt + '.pdf', "rb") as pdf_file:
+                        PDF = pdf_file.read()
 
-                    st.download_button(label="Download PDF",
-                                       data=PDF,
-                                       file_name=txt + '.pdf',
-                                       mime='application/octet-stream')
+                        st.download_button(label="Download PDF",
+                                           data=PDF,
+                                           file_name=txt + '.pdf',
+                                           mime='application/octet-stream')
 
-        except ValueError:
-            st.warning('0 Value is not allowed to concatenate the image.')
-        except FileNotFoundError:
-            st.warning('Please Build your image first!')
+            except ValueError:
+                st.warning('0 Value is not allowed to concatenate the image.')
+            except FileNotFoundError:
+                st.warning('Please Build your image first!')
+            
+        else:
+            st.warning('Limit of rows reached. Limit = Vertical: 25 Horizontal: 10.')
+
+
+
 
 

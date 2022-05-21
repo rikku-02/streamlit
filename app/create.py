@@ -93,6 +93,13 @@ def app():
                     get_concat_tile_repeat(im_s, vertical_row, horizontal_row).save('concat.jpg')
                     st.image('concat.jpg')
 
+                    with open("concat.png", "rb") as file:
+                      btn = st.download_button(
+                        label="Download image",
+                        data=file,
+                        file_name="concat.jpg",
+                        mime="image/png")
+
                     with open(txt + '.pdf', "wb") as f:
                         f.write(img2pdf.convert('concat.jpg'))
 

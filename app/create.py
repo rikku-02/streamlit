@@ -13,7 +13,7 @@ def app():
                 'Dream_Catcher', 'Nyctographic', 'Thunderblack', 'Perpetrator_Italic', 'Perpetrator_Regular',
                 'Sparkles',
                 'Translator'))
-            font_Size = st.number_input('Font Size: ', min_value=None, max_value=None, value=50)
+            font_Size = st.number_input('Font Size: ', min_value=None, max_value=None, value=20)
             font_color = st.color_picker('Font Color:', '#fff')
 
         with col2:
@@ -27,7 +27,7 @@ def app():
             bg_color = st.color_picker('Background Color:', '#000')
 
             border_color = st.color_picker('Border Color:', '#fff')
-            border_weight = st.slider('Border Weight [0 = No Border]:', 0, 20, 0)
+            border_weight = st.slider('Border Weight [0 = No Border]:', 0, 20, 2)
 
         with st.container():
             txt = st.text_input('Your Text: ')

@@ -1,7 +1,6 @@
 import streamlit as st
 from multiapp import MultiApp
 from app import home, create, custom
-from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 app = MultiApp()
 
@@ -15,4 +14,3 @@ app.add_app("Upload your Custom Design", custom.app)
 
 # The main app
 app.run()
-  

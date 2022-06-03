@@ -1,5 +1,6 @@
 from requests import get
-import streamlit as st
-
-ip = get('https://api.ipify.org').text
-st.write('My public IP address is: {}'.format(ip))
+import socket    
+hostname = socket.gethostname()    
+IPAddr = socket.gethostbyname(hostname)    
+st.write("Your Computer Name is:" + hostname)    
+st.write("Your Computer IP Address is:" + IPAddr) 

@@ -1,6 +1,5 @@
+from requests import get
 import streamlit as st
-from getmac import get_mac_address
 
-mac = get_mac_address()
-
-st.write(mac)
+ip = get('https://api.ipify.org').text
+st.write('My public IP address is: {}'.format(ip))

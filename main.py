@@ -1,4 +1,4 @@
-from requests import get
+import streamlit as st
 import socket    
 hostname = socket.gethostname()    
 IPAddr = socket.gethostbyname(hostname)    

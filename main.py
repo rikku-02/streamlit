@@ -20,7 +20,6 @@ def search():
             soup = BeautifulSoup(request_result.text,
                                  "html.parser")
 
-            dom = etree.HTML(str(soup))
             header = soup.findAll("div", {"class": "product"}, {'class': 'product-icon'})
 
             col1, mid, col2 = st.columns([20, 1, 10])
@@ -31,7 +30,10 @@ def search():
                     title = div.find('img')['alt']
                     desc = div.find('p', {'class': 'product-desc'})
                     link = div.find('a')['href']
-                    size = dom.xpath('/html/body/div[2]/div[2]/main/section/div[2]/div[1]/div[4]')[0].text
+                    # size = dom.xpath('/html/body/div[2]/div[2]/main/section/div[2]/div[10]/div[4]')[0].text
+
+
+
 
                     # API
                     st.image(icon, width=80)
@@ -40,13 +42,21 @@ def search():
                     dl = st.button(f'Scrape [{title}]')
 
                     if dl:
+                        request_size = requests.get(link)
+                        soup_size = BeautifulSoup(request_size.text,
+                                                  "html.parser")
+
+                        dom_size = etree.HTML(str(soup_size))
+
+                        size = dom_size.xpath('/html/body/div[2]/div[2]/aside/div[2]/div[1]/text()')[0]
+                        byte_i = dom_size.xpath('/html/body/div[2]/div[2]/aside/div[2]/div[1]/span')[0].text
                         data = {'Product': []}
                         data['Product'].append({
                             'Title': title,
                             'Icon': icon,
                             'Download-Link': str(dl_link),
                             'Description': desc.getText(),
-                            'File-Size': size
+                            'File-Size': f'{size} {byte_i}'
                         })
 
                         with open('data.json', 'w+') as outfile:
@@ -67,7 +77,7 @@ def search():
 
     else:
         if text == '':
-            st.write('Results will show here.')
+            pass
 
 
 if __name__ == '__main__':

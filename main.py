@@ -56,7 +56,7 @@ def search():
                             'Icon': icon,
                             'Download-Link': str(dl_link),
                             'Description': desc.getText(),
-                            'File-Size': f'{size} {byte_i}'
+                            'File-Size': f'{size}{byte_i}'
                         })
 
                         with open('data.json', 'w+') as outfile:

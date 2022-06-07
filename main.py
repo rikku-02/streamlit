@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from lxml import etree
 import json
+from requests.exceptions import MissingSchema
 
 
 def search():
@@ -74,6 +75,12 @@ def search():
 
     except SystemError:
         pass
+
+    except IndexError:
+        st.warning('This is a Premium App.')
+
+    except MissingSchema:
+        st.warning('This is a Premium App.')
 
     else:
         if text == '':

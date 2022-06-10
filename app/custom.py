@@ -36,7 +36,7 @@ def app():
                     dst_h = get_concat_h_repeat(im, column)
                     return get_concat_v_repeat(dst_h, row)
 
-                im_s = img_c.resize((img_c.width // 2, img_c.height // 2))
+                im_s = img_c.resize((img_c.width // 1, img_c.height // 1))
                 get_concat_tile_repeat(im_s, vertical_row, horizontal_row).save('concat.jpg')
                 st.image('concat.jpg')
 

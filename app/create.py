@@ -9,9 +9,9 @@ def app():
 
         with col1:
             st.header('Text Style')
-            font_style = st.selectbox('Font Style:', ('Dream_Catcher', 'Nyctographic', 'Thunderblack', 'Perpetrator_Italic', 'Perpetrator_Regular',
+            font_style = st.selectbox('Font Style:', ('Sakurata', 'Romaji_Mincho', 'Dream_Catcher', 'Nyctographic', 'Thunderblack', 'Perpetrator_Italic', 'Perpetrator_Regular',
                 'Sparkles',
-                'Translator', 'Sakurata'))
+                'Translator'))
             font_Size = st.number_input('Font Size: ', min_value=None, max_value=None, value=20)
             font_color = st.color_picker('Font Color:', '#fff')
 

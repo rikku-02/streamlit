@@ -53,18 +53,18 @@ def app():
             draw = ImageDraw.Draw(img_with_border)
 
             def draw_text(font_size):
-                                    try:
-                        pick_font = f'Fonts/{font_style + ".ttf"}'
-                        font = ImageFont.FreeTypeFont(pick_font, int(font_size / (res_y_old / res_y)))
-                        # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
-                        draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=name, font=font, fill=font_color,
-                                  anchor='mm')
-                    except OSError:
-                        pick_font = f'Fonts/{font_style + ".otf"}'
-                        font = ImageFont.FreeTypeFont(pick_font, int(font_size / (res_y_old / res_y)))
-                        # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
-                        draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=name, font=font, fill=font_color,
-                                  anchor='mm')
+              try:
+                  pick_font = f'Fonts/{font_style + ".ttf"}'
+                  font = ImageFont.FreeTypeFont(pick_font, int(font_size / (res_y_old / res_y)))
+                  # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
+                  draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=name, font=font, fill=font_color,
+                            anchor='mm')
+              except OSError:
+                  pick_font = f'Fonts/{font_style + ".otf"}'
+                  font = ImageFont.FreeTypeFont(pick_font, int(font_size / (res_y_old / res_y)))
+                  # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
+                  draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=name, font=font, fill=font_color,
+                            anchor='mm')
 
             if build:
                 try:

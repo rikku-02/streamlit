@@ -325,6 +325,16 @@ def app():
                                        file_name=txt + '.pdf',
                                        mime='application/octet-stream')
 
+                with open('_concat' + '.png', "rb") as img_file:
+                    img = img_file.read()
+
+                    st.download_button(label="Download PDF",
+                                       data=PDF,
+                                       file_name=txt + '.pdf',
+                                       mime='application/octet-stream')
+
+                    
+
             except FileNotFoundError:
                 st.info('Output will show here.')
 

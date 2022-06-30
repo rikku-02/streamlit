@@ -317,21 +317,23 @@ def app():
                 with open(txt + '.pdf', "wb") as f:
                     f.write(img2pdf.convert(txt + '_concat' + '.png'))
 
-                # with open(txt + '.pdf', "rb") as pdf_file:
-                #     PDF = pdf_file.read()
+                with open(txt + '.pdf', "rb") as pdf_file:
+                    PDF = pdf_file.read()
 
-                #     st.download_button(label="Download PDF",
-                #                        data=PDF,
-                #                        file_name=txt + '.pdf',
-                #                        mime='application/octet-stream')
+                    st.download_button(label="Download PDF",
+                                       data=PDF,
+                                       file_name=txt + '.pdf',
+                                       mime='application/octet-stream')
 
                 with open('_concat' + '.png', "rb") as img_file:
                     img = img_file.read()
 
                     st.download_button(label="Download PNG",
                                        data=img,
-                                       file_name=txt + '.png',
+                                       file_name='_concat' + '.png',
                                        mime='image/png')
+
+        
 
                     
 

@@ -328,10 +328,10 @@ def app():
                 with open('_concat' + '.png', "rb") as img_file:
                     img = img_file.read()
 
-                    st.download_button(label="Download PDF",
-                                       data=PDF,
-                                       file_name=txt + '.pdf',
-                                       mime='application/octet-stream')
+                    st.download_button(label="Download PNG",
+                                       data=img,
+                                       file_name=txt + '.png',
+                                       mime='image/png')
 
                     
 

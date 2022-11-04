@@ -30,37 +30,41 @@ def streamlit_code():
         hex_code = st.text_input('Hex Code: ')
         hash_code = '#'
 
-        if hash_code in hex_code:
-            hex_c = hex_code.replace(hash_code, '')
+        identify = st.button('Identify')
 
-            url = f'https://www.color-name.com/hex/{hex_c}'
-            request_result = requests.get(url)
-            soup = BeautifulSoup(request_result.text, "html.parser")
-            dom = etree.HTML(str(soup))
-            header = soup.findAll("div", {"class": "color-bio"})
-            color_url = f'https://www.color-name.com/color-image?c={hex_c}&square&tx'
+        if identify:
 
-            st.title(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h1')[0].text)
-            st.subheader(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h4')[0].text)
-            st.image(color_url, width=80)
-            for div in header:
-                description = div.find('p').text
-                st.markdown(description)
+            if hash_code in hex_code:
+                hex_c = hex_code.replace(hash_code, '')
 
-        else:
-            url = f'https://www.color-name.com/hex/{hex_code}'
-            request_result = requests.get(url)
-            soup = BeautifulSoup(request_result.text, "html.parser")
-            dom = etree.HTML(str(soup))
-            header = soup.findAll("div", {"class": "color-bio"})
-            color_url = f'https://www.color-name.com/color-image?c={hex_code}&square&tx'
+                url = f'https://www.color-name.com/hex/{hex_c}'
+                request_result = requests.get(url)
+                soup = BeautifulSoup(request_result.text, "html.parser")
+                dom = etree.HTML(str(soup))
+                header = soup.findAll("div", {"class": "color-bio"})
+                color_url = f'https://www.color-name.com/color-image?c={hex_c}&square&tx'
 
-            st.title(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h1')[0].text)
-            st.subheader(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h4')[0].text)
-            st.image(color_url, width=80)
-            for div in header:
-                description = div.find('p').text
-                st.markdown(description)
+                st.title(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h1')[0].text)
+                st.subheader(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h4')[0].text)
+                st.image(color_url, width=80)
+                for div in header:
+                    description = div.find('p').text
+                    st.markdown(description)
+
+            else:
+                url = f'https://www.color-name.com/hex/{hex_code}'
+                request_result = requests.get(url)
+                soup = BeautifulSoup(request_result.text, "html.parser")
+                dom = etree.HTML(str(soup))
+                header = soup.findAll("div", {"class": "color-bio"})
+                color_url = f'https://www.color-name.com/color-image?c={hex_code}&square&tx'
+
+                st.title(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h1')[0].text)
+                st.subheader(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h4')[0].text)
+                st.image(color_url, width=80)
+                for div in header:
+                    description = div.find('p').text
+                    st.markdown(description)
     except IndexError:
         pass
 

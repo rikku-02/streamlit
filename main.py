@@ -1,91 +1,70 @@
 import streamlit as st
-import requests
 from bs4 import BeautifulSoup
 from lxml import etree
-import json
-from requests.exceptions import MissingSchema
+import requests
 
 
-def search():
-    st.title('Pre-Activated Applications [Scraper]')
-    text = st.text_input('Search:')
-    page = st.number_input('Page: ', value=1)
-    dl_link = st.text_input('Download Link: ')
+def color_by_hex():
+    hex_code = input('Hex Code: ')
 
+    url = f'https://www.color-name.com/hex/{hex_code}'
+    color_url = f'https://www.color-name.com/color-image?c={hex_code}&square&tx'
+    request_result = requests.get(url)
+
+    soup = BeautifulSoup(request_result.text, "html.parser")
+
+    dom = etree.HTML(str(soup))
+    print(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h1')[0].text)
+    print(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h4')[0].text)
+    print(dom.xpath('/html/body/section/section[1]/div/h2')[0].text)
+    header = soup.findAll("div", {"class": "color-bio"})
+
+    for div in header:
+        name = div.find('p').text
+        print(name)
+
+
+def streamlit_code():
     try:
-        with st.spinner('Loading'):
-            # BeautifulSoup
+        st.title('Hex Color Indetifier - りく')
+        hex_code = st.text_input('Hex Code: ')
+        hash_code = '#'
 
-            url = f'https://filecr.com/?page={page}&s=' + text + '&subcat_filter=&category-type=2'
+        if hash_code in hex_code:
+            hex_c = hex_code.replace(hash_code, '')
+
+            url = f'https://www.color-name.com/hex/{hex_c}'
             request_result = requests.get(url)
-            soup = BeautifulSoup(request_result.text,
-                                 "html.parser")
+            soup = BeautifulSoup(request_result.text, "html.parser")
+            dom = etree.HTML(str(soup))
+            header = soup.findAll("div", {"class": "color-bio"})
+            color_url = f'https://www.color-name.com/color-image?c={hex_c}&square&tx'
 
-            header = soup.findAll("div", {"class": "product"}, {'class': 'product-icon'})
+            st.title(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h1')[0].text)
+            st.subheader(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h4')[0].text)
+            st.image(color_url, width=80)
+            for div in header:
+                description = div.find('p').text
+                st.markdown(description)
 
-            col1, mid, col2 = st.columns([20, 1, 10])
+        else:
+            url = f'https://www.color-name.com/hex/{hex_code}'
+            request_result = requests.get(url)
+            soup = BeautifulSoup(request_result.text, "html.parser")
+            dom = etree.HTML(str(soup))
+            header = soup.findAll("div", {"class": "color-bio"})
+            color_url = f'https://www.color-name.com/color-image?c={hex_code}&square&tx'
 
-            with col1:
-                for div in header:
-                    icon = div.find('img')['src']
-                    title = div.find('img')['alt']
-                    desc = div.find('p', {'class': 'product-desc'})
-                    link = div.find('a')['href']
-                    # size = dom.xpath('/html/body/div[2]/div[2]/main/section/div[2]/div[10]/div[4]')[0].text
-
-
-
-
-                    # API
-                    st.image(icon, width=80)
-                    st.subheader(title)
-
-                    dl = st.button(f'Scrape [{title}]')
-
-                    if dl:
-                        request_size = requests.get(link)
-                        soup_size = BeautifulSoup(request_size.text,
-                                                  "html.parser")
-
-                        dom_size = etree.HTML(str(soup_size))
-
-                        size = dom_size.xpath('/html/body/div[2]/div[2]/aside/div[2]/div[1]/text()')[0]
-                        byte_i = dom_size.xpath('/html/body/div[2]/div[2]/aside/div[2]/div[1]/span')[0].text
-                        data = {'Product': []}
-                        data['Product'].append({
-                            'Title': title,
-                            'Icon': icon,
-                            'Download-Link': str(dl_link),
-                            'Description': desc.getText(),
-                            'File-Size': f'{size}{byte_i}'
-                        })
-
-                        with open('data.json', 'w+') as outfile:
-                            json.dump(data, outfile, indent=4)
-                            st.success('Done!')
-
-                        with open('data.json', 'rb') as jf:
-                            json_file = jf.read()
-                            st.download_button(
-                                label="Download Data",
-                                data=json_file,
-                                file_name='data.json',
-                                mime='application/JSON',
-                            )
-
-    except SystemError:
-        pass
-
+            st.title(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h1')[0].text)
+            st.subheader(dom.xpath('/html/body/section/div[1]/div/div/div[1]/div/h4')[0].text)
+            st.image(color_url, width=80)
+            for div in header:
+                description = div.find('p').text
+                st.markdown(description)
     except IndexError:
-        st.warning('This is a Premium App.')
-
-    except MissingSchema:
-        st.warning('This is a Premium App.')
-
-    else:
-        if text == '':
-            pass
+        pass
 
 
 if __name__ == '__main__':
-    search()
+    # color_by_hex()
+    streamlit_code()

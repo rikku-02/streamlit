@@ -9,9 +9,9 @@ def app():
 
         with col1:
             st.header('Text Style')
-            font_style = st.selectbox('Font Style:', (
-            'Sakurata', 'Romaji_Mincho', 'Dream_Catcher', 'Nyctographic', 'Thunderblack', 'Perpetrator_Italic',
-            'Perpetrator_Regular', 'Sparkles', 'Translator'))
+            font_style = st.selectbox('Font Style:', ('Sakurata', 'Romaji_Mincho', 'Dream_Catcher', 'Nyctographic', 'Thunderblack', 'Perpetrator_Italic', 'Perpetrator_Regular',
+                'Sparkles',
+                'Translator'))
             font_Size = st.number_input('Font Size: ', min_value=None, max_value=None, value=20)
             font_color = st.color_picker('Font Color:', '#fff')
 
@@ -29,72 +29,62 @@ def app():
             border_weight = st.slider('Border Weight [0 = No Border]:', 0, 20, 2)
 
         with st.container():
-            c_name = st.number_input('Count: ', min_value=None, max_value=None, value=1)
             txt = st.text_input('Your Text: ')
             build = st.button('Build →')
 
-            # Add Number to names
-            for i in range(1, c_name + 1):
-                name = f'{txt} {str(i).zfill(2)}'
-                # Set up parameters
-                w_cm, h_cm = (width, height)  # Real label size in cm
-                res_x, res_y = (DPI, DPI)  # Desired resolution
-                res_y_old = 94  # Old y resolution (204 / 5.5 * 2.54)
+            # Set up parameters
+            w_cm, h_cm = (width, height)  # Real label size in cm
+            res_x, res_y = (DPI, DPI)  # Desired resolution
+            res_y_old = 94  # Old y resolution (204 / 5.5 * 2.54)
 
-                # Inch-to-cm factor
-                f = 2.54
+            # Inch-to-cm factor
+            f = 2.54
 
-                # Determine image size w.r.t. resolution
-                w = int(w_cm / f * res_x)
-                h = int(h_cm / f * res_y)
+            # Determine image size w.r.t. resolution
+            w = int(w_cm / f * res_x)
+            h = int(h_cm / f * res_y)
 
-                # Create new image with proper size
-                img = Image.new('RGB', (w, h), color=bg_color)
-                img_with_border = ImageOps.expand(img, border=border_weight, fill=border_color)
+            # Create new image with proper size
+            img = Image.new('RGB', (w, h), color=bg_color)
+            img_with_border = ImageOps.expand(img, border=border_weight, fill=border_color)
 
-                # Draw elements
-                draw = ImageDraw.Draw(img_with_border)
-                x = 5
-                y = 5
-                draw.ellipse((x, y, w - x / 2, h - y / 2), fill='#FF0000')
+            # Draw elements
+            draw = ImageDraw.Draw(img_with_border)
 
-                def draw_text(font_size):
-                    try:
-                        pick_font = f'Fonts/{font_style + ".ttf"}'
-                        font = ImageFont.FreeTypeFont(pick_font, int(font_size / (res_y_old / res_y)))
-                        # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
-                        draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=name, font=font, fill=font_color,
-                                  anchor='mm')
-                    except OSError:
-                        pick_font = f'Fonts/{font_style + ".otf"}'
-                        font = ImageFont.FreeTypeFont(pick_font, int(font_size / (res_y_old / res_y)))
-                        # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
-                        draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=name, font=font, fill=font_color,
-                                  anchor='mm')
+            def draw_text(font_size):
+              try:
+                  pick_font = f'Fonts/{font_style + ".ttf"}'
+                  font = ImageFont.FreeTypeFont(pick_font, int(font_size / (res_y_old / res_y)))
+                  # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
+                  draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=txt, font=font, fill=font_color, anchor='mm')
+              except:
+                pick_font = f'Fonts/{font_style + ".otf"}'
+                font = ImageFont.FreeTypeFont(pick_font, int(font_size / (res_y_old / res_y)))
+                # x, y = (int(x_cm / f * res_x), int(y_cm / f * res_y))
+                draw.text(xy=(img.size[0] / 2, img.size[1] / 2), text=txt, font=font, fill=font_color, anchor='mm')
 
-                if build:
-                    try:
-                        with st.spinner('Chotto Matte チョットー・マット...'):
+            if build:
+                try:
+                    with st.spinner('Chotto Matte チョットー・マット...'):
 
-                            # Draw texts
-                            draw_text(font_Size)
-                            # Save images
-                            img_path = 'images'
-                            img_with_border.save(img_path + '/' + name + '.png', dpi=(res_x, res_y))
-                            st.image(img_path + '/' + name + '.png')
-                            # with open(txt + '.png', "rb") as file:
-                            #     st.download_button(
-                            #         label="Download",
-                            #         data=file,
-                            #         file_name=txt + '.png',
-                            #         mime="image/png"
-                            #     )
+                        # Draw texts
+                        draw_text(font_Size)
+                        # Save images
+                        img_with_border.save(txt + '.png', dpi=(res_x, res_y))
+                        st.image(txt + '.png')
+                        with open(txt + '.png', "rb") as file:
+                            st.download_button(
+                                label="Download",
+                                data=file,
+                                file_name=txt + '.png',
+                                mime="image/png"
+                            )
 
-                    except (ZeroDivisionError, ValueError, SystemError):
-                        if txt == '':
-                            st.warning('Input Text Field')
-                        else:
-                            st.warning('Input Valid Parameters')
+                except (ZeroDivisionError, ValueError, SystemError):
+                    if txt == '':
+                        st.warning('Input Text Field')
+                    else:
+                        st.warning('Input Valid Parameters')
 
     with st.expander("Concatenate Image: "):
 
@@ -146,10 +136,8 @@ def app():
             page_type = st.selectbox('Page Type:', ('A4', 'Letter', 'Legal', 'Custom'))
 
             if page_type == 'A4':
-                width_bg = st.number_input('Canvas Width [ CM ]: ', min_value=None, max_value=None, value=page_A4_w,
-                                           disabled=True)
-                height_bg = st.number_input('Canvas Height [ CM ]: ', min_value=None, max_value=None, value=page_A4_h,
-                                            disabled=True)
+                width_bg = st.number_input('Canvas Width [ CM ]: ', min_value=None, max_value=None, value=page_A4_w, disabled=True)
+                height_bg = st.number_input('Canvas Height [ CM ]: ', min_value=None, max_value=None, value=page_A4_h, disabled=True)
                 vertical_row = st.number_input('Vertical Rows: ', min_value=None, max_value=None, value=1)
                 horizontal_row = st.number_input('Horizontal Rows: ', min_value=None, max_value=None,
                                                  value=1)
@@ -234,10 +222,8 @@ def app():
                         superimpose()
 
             if page_type == 'Legal':
-                width_bg = st.number_input('Canvas Width [ CM ]: ', min_value=None, max_value=None, value=page_legal_w,
-                                           disabled=True)
-                height_bg = st.number_input('Canvas Height [ CM ]: ', min_value=None, max_value=None,
-                                            value=page_legal_h, disabled=True)
+                width_bg = st.number_input('Canvas Width [ CM ]: ', min_value=None, max_value=None, value=page_legal_w, disabled=True)
+                height_bg = st.number_input('Canvas Height [ CM ]: ', min_value=None, max_value=None, value=page_legal_h, disabled=True)
                 vertical_row = st.number_input('Vertical Rows: ', min_value=None, max_value=None, value=1)
                 horizontal_row = st.number_input('Horizontal Rows: ', min_value=None, max_value=None,
                                                  value=1)
@@ -279,8 +265,7 @@ def app():
 
             if page_type == 'Custom':
                 width_bg = st.number_input('Canvas Width [ CM ]: ', min_value=None, max_value=None, value=page_custom_w)
-                height_bg = st.number_input('Canvas Height [ CM ]: ', min_value=None, max_value=None,
-                                            value=page_custom_h)
+                height_bg = st.number_input('Canvas Height [ CM ]: ', min_value=None, max_value=None, value=page_custom_h)
                 vertical_row = st.number_input('Vertical Rows: ', min_value=None, max_value=None, value=1)
                 horizontal_row = st.number_input('Horizontal Rows: ', min_value=None, max_value=None,
                                                  value=1)
@@ -340,5 +325,18 @@ def app():
                                        file_name=txt + '.pdf',
                                        mime='application/octet-stream')
 
+                with open('_concat' + '.png', "rb") as img_file:
+                    img = img_file.read()
+
+                    st.download_button(label="Download PNG",
+                                       data=img,
+                                       file_name='_concat' + '.png',
+                                       mime='image/png')
+
+        
+
+                    
+
             except FileNotFoundError:
                 st.info('Output will show here.')
+

@@ -27,7 +27,7 @@ def color_by_hex():
 def streamlit_code():
     try:
         st.title('Hex Color Indetifier - りく')
-        hex_code = st.text_input('Hex Code: ', max_chars='7')
+        hex_code = st.text_input('Hex Code: ', max_chars=7)
         hash_code = '#'
 
         identify = st.button('Identify')

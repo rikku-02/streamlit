@@ -51,7 +51,7 @@ def streamlit_code():
                     description = div.find('p').text
                     st.markdown(description)
 
-            else:
+            elif hash_code not in hex_code:
                 url = f'https://www.color-name.com/hex/{hex_code}'
                 request_result = requests.get(url)
                 soup = BeautifulSoup(request_result.text, "html.parser")
@@ -65,6 +65,7 @@ def streamlit_code():
                 for div in header:
                     description = div.find('p').text
                     st.markdown(description)
+
     except IndexError:
         pass
 

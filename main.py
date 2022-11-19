@@ -1,7 +1,6 @@
 import streamlit as st
 import owo
-import random
-
+import qrcode
 
 def auth():
     k = st.empty()
@@ -21,11 +20,7 @@ def main():
 
         st.header('Rikku.File Upload and Url Shortener')
 
-        link1 = 'https://owo.whats-th.is/ACLxPmx.png'
-        link2 = 'https://owo.whats-th.is/q467i7A.jpg'
-        link3 = 'https://owo.whats-th.is/5FwveEs.jpg'
-        link4 = 'https://owo.whats-th.is/5NvMyWE.png'
-        IMAGE_URL = random.choice([link1, link2, link3, link4])
+        IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
         st.image(IMAGE_URL)
 
         st.subheader('Rikku.File Upload')
@@ -38,12 +33,15 @@ def main():
             with open(f'{uploaded_file.name}', 'wb') as f:
                 f.write(bytes_data)
 
-        if btnUp:
-            with st.spinner('Uploading...'):
-                st.write(owo.upload_files(key, uploaded_file.name))
-                st.success('File Uploaded.')
-
-
+            if btnUp:
+                with st.spinner('Uploading...'):
+                    link = owo.upload_files(key, uploaded_file.name)
+                    st.write(link)
+                    qr_img = qrcode.make(link[uploaded_file.name])  
+                    qr_img.save('qr.png')
+                    st.image('qr.png')
+                    st.success('File Uploaded.')
+                    
 
     except UnboundLocalError:
         st.warning('Please select a file.')
@@ -53,24 +51,35 @@ def main():
     url = st.text_input('ex. https://...', '')
     btn = st.button('Shorten')
     req = 'https://'
+    dot = '.'
 
-    try:
-        if len(url) > 12 and req not in url:
-          if btn:
-            st.write(owo.shorten_urls(key, req + url))
-
-        else:
-          if btn:
-            st.write(owo.shorten_urls(key, url))
-         
-
-        if len(url) <= 8:
+    if len(url) <= 8 or dot not in url:
             if btn:
                 st.warning('Please input a URL.')
 
+    else:
+        try:
+            if req in url:
+                if btn:
+                    link_s = owo.shorten_urls(key, url)
+                    st.write(link_s)
+                    qr_img1 = qrcode.make(link_s[0])  
+                    qr_img1.save('qr1.png')
+                    st.image('qr1.png')
+        
+            elif req not in url:
+                if btn:
+                    link_s = owo.shorten_urls(key, req + url)
+                    st.write(link_s)
+                    qr_img1 = qrcode.make(link_s[0])  
+                    qr_img1.save('qr1.png')
+                    st.image('qr1.png')
 
-    except ValueError:
-        st.warning('Please input a valid parameter.')
+
+        
+
+        except ValueError:
+            pass
 
 
 if __name__ == '__main__':

@@ -18,12 +18,12 @@ def main():
     try:
         key = st.secrets['API_KEY']
 
-        st.header('Rikku.File Upload and Url Shortener')
+        st.header('RIKU.File Upload and Url Shortener')
 
         IMAGE_URL = "https://ahegao.b-cdn.net/wp-content/uploads/2021/04/Ijiranaide-Nagatoro-san-Episode-1-Nagatoro-Wipes-More-Senpai-Tears.jpg"
         st.image(IMAGE_URL)
 
-        st.subheader('Rikku.File Upload')
+        st.subheader('RIKU.File Upload')
         uploaded_files = st.file_uploader("Upload File:", accept_multiple_files=True)
 
         btnUp = st.button('Upload')
@@ -47,7 +47,7 @@ def main():
         st.warning('Please select a file.')
 
     # URL Shortener
-    st.subheader('Rikku.URL Shortener')
+    st.subheader('RIKU.URL Shortener')
     url = st.text_input('ex. https://...', '')
     btn = st.button('Shorten')
     req = 'https://'

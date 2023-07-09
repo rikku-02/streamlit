@@ -47,12 +47,12 @@ def app():
                         st.success('Successful! Download Now ⬇')
                         st.download_button('Download Mp3', f, file_name=yt.title + '.mp3')
 
-        except RegexMatchError:
-            st.warning('Please input a valid URL!')
+        # except RegexMatchError:
+        #     st.warning('Please input a valid URL!')
 
-        except VideoUnavailable:
-            st.warning("Sorry, the link you've entered is Unavailable.")
+        # except VideoUnavailable:
+        #     st.warning("Sorry, the link you've entered is Unavailable.")
             
-        except PytubeError:
-                  pass
+        # except PytubeError:
+        #           pass
 
